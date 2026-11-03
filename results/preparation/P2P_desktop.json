@@ -1,0 +1,10 @@
+{
+  "status": "PASS_EXACT_REBUILD",
+  "dataset": "P2P_desktop",
+  "raw_rows": 204324,
+  "retained_rows": 200658,
+  "daily_rows": 4095,
+  "prepared_sha256": "2b9bd12c98f932760b66feb5c40cb91d3a77143b268ae249f486466ed2d37b61",
+  "labels_used_in_predictor_construction": false,
+  "diagnostic_past_label_excluded_from_predictors": true
+}

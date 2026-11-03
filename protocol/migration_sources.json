@@ -1,0 +1,210 @@
+{
+  "date": "2026-11-02",
+  "retrospective": true,
+  "sources": [
+    {
+      "source": "00_datasets/NonEnc_desktop.parquet",
+      "target": "data/raw/NonEnc_desktop.parquet",
+      "sha256": "361e0e7f1dc3d822cf27befc51e831f11aefc6a36092c351f249255e2b35c0b5",
+      "target_sha256": "361e0e7f1dc3d822cf27befc51e831f11aefc6a36092c351f249255e2b35c0b5"
+    },
+    {
+      "source": "01_full_audit/results/integrity/01_NonEnc_desktop_row_mapping.parquet",
+      "target": "data/mapping/NonEnc_desktop.parquet",
+      "sha256": "f8c065aa447701d9c59444bbe106cc60547edbbfe7bdd2ce590e34e4963908a8",
+      "target_sha256": "f8c065aa447701d9c59444bbe106cc60547edbbfe7bdd2ce590e34e4963908a8"
+    },
+    {
+      "source": "01_full_audit/03_experiment/prepared/NonEnc_desktop.parquet",
+      "target": "data/prepared/NonEnc_desktop.parquet",
+      "sha256": "b735f49c7bae0504e306ed50ee26e9382f76f7211807124326ac8a084f805190",
+      "target_sha256": "b735f49c7bae0504e306ed50ee26e9382f76f7211807124326ac8a084f805190"
+    },
+    {
+      "source": "01_full_audit/03_experiment/prepared/NonEnc_desktop_features.json",
+      "target": "data/prepared/NonEnc_desktop_features.json",
+      "sha256": "0e584e0f98e9e6a1251c3f187bb7dddd5daf19f9ea1644a2494ebe03bf3df38d",
+      "target_sha256": "0e584e0f98e9e6a1251c3f187bb7dddd5daf19f9ea1644a2494ebe03bf3df38d"
+    },
+    {
+      "source": "00_datasets/NonEnc_smartphone.parquet",
+      "target": "data/raw/NonEnc_smartphone.parquet",
+      "sha256": "611e46be043cb0bb6ad6ee94c8239869fbda7792dc72ab1bdbbe01af21ec9d6e",
+      "target_sha256": "611e46be043cb0bb6ad6ee94c8239869fbda7792dc72ab1bdbbe01af21ec9d6e"
+    },
+    {
+      "source": "01_full_audit/results/integrity/01_NonEnc_smartphone_row_mapping.parquet",
+      "target": "data/mapping/NonEnc_smartphone.parquet",
+      "sha256": "5573538b65daccb53b0ba2473016d17c748266715b9634cd96d2dc5678d426eb",
+      "target_sha256": "5573538b65daccb53b0ba2473016d17c748266715b9634cd96d2dc5678d426eb"
+    },
+    {
+      "source": "01_full_audit/03_experiment/prepared/NonEnc_smartphone.parquet",
+      "target": "data/prepared/NonEnc_smartphone.parquet",
+      "sha256": "7b2cca58c7bbb9daac86394b99ec4548bb70dc19649d62b2e00ebfd36a768328",
+      "target_sha256": "7b2cca58c7bbb9daac86394b99ec4548bb70dc19649d62b2e00ebfd36a768328"
+    },
+    {
+      "source": "01_full_audit/03_experiment/prepared/NonEnc_smartphone_features.json",
+      "target": "data/prepared/NonEnc_smartphone_features.json",
+      "sha256": "466b6bd210472a9442860a40ccc1cc2878d9025875e38ba39e93d6f5b22ef6ec",
+      "target_sha256": "466b6bd210472a9442860a40ccc1cc2878d9025875e38ba39e93d6f5b22ef6ec"
+    },
+    {
+      "source": "00_datasets/P2P_desktop.parquet",
+      "target": "data/raw/P2P_desktop.parquet",
+      "sha256": "f9b27798af395434aa99f7526a6bbd225b7bc387889902881472629a06cdf364",
+      "target_sha256": "f9b27798af395434aa99f7526a6bbd225b7bc387889902881472629a06cdf364"
+    },
+    {
+      "source": "01_full_audit/results/integrity/01_P2P_desktop_row_mapping.parquet",
+      "target": "data/mapping/P2P_desktop.parquet",
+      "sha256": "b6ae2e252fa7c89740f3e2e313cf30ba05c134ad299d529e9aac760fa25f2597",
+      "target_sha256": "b6ae2e252fa7c89740f3e2e313cf30ba05c134ad299d529e9aac760fa25f2597"
+    },
+    {
+      "source": "01_full_audit/03_experiment/prepared/P2P_desktop.parquet",
+      "target": "data/prepared/P2P_desktop.parquet",
+      "sha256": "2b9bd12c98f932760b66feb5c40cb91d3a77143b268ae249f486466ed2d37b61",
+      "target_sha256": "2b9bd12c98f932760b66feb5c40cb91d3a77143b268ae249f486466ed2d37b61"
+    },
+    {
+      "source": "01_full_audit/03_experiment/prepared/P2P_desktop_features.json",
+      "target": "data/prepared/P2P_desktop_features.json",
+      "sha256": "f7b20cfa6d584213bb7fcfa2ec7921f2c71161e2ba18d6faa45e6e4013dcbfa9",
+      "target_sha256": "f7b20cfa6d584213bb7fcfa2ec7921f2c71161e2ba18d6faa45e6e4013dcbfa9"
+    },
+    {
+      "source": "00_datasets/P2P_smartphone.parquet",
+      "target": "data/raw/P2P_smartphone.parquet",
+      "sha256": "53a6d32a3694a2e5690d253f7b469f91b129334ed3577f92f0f325a481ce386b",
+      "target_sha256": "53a6d32a3694a2e5690d253f7b469f91b129334ed3577f92f0f325a481ce386b"
+    },
+    {
+      "source": "01_full_audit/results/integrity/01_P2P_smartphone_row_mapping.parquet",
+      "target": "data/mapping/P2P_smartphone.parquet",
+      "sha256": "6e4e55af01cd17cecde4f4585b0a145f69c89e74a060e171b08e6af42256a79d",
+      "target_sha256": "6e4e55af01cd17cecde4f4585b0a145f69c89e74a060e171b08e6af42256a79d"
+    },
+    {
+      "source": "01_full_audit/03_experiment/prepared/P2P_smartphone.parquet",
+      "target": "data/prepared/P2P_smartphone.parquet",
+      "sha256": "d9e14c0d9655f8d02e28558a9e55e992fa22a18356d5ac34fdeee6d9cb258aa5",
+      "target_sha256": "d9e14c0d9655f8d02e28558a9e55e992fa22a18356d5ac34fdeee6d9cb258aa5"
+    },
+    {
+      "source": "01_full_audit/03_experiment/prepared/P2P_smartphone_features.json",
+      "target": "data/prepared/P2P_smartphone_features.json",
+      "sha256": "797bc07dd1b3bffcd240158dab355edaf97f81500aa4388ffb6cd892e7570e40",
+      "target_sha256": "797bc07dd1b3bffcd240158dab355edaf97f81500aa4388ffb6cd892e7570e40"
+    },
+    {
+      "source": "publication_analysis/2026-11-02/manuscript_review/REVIEW.md",
+      "target": "publication_analysis/2026-11-02/manuscript_review/REVIEW.md",
+      "sha256": "6db8ef0ced9be2738382c63a4ec14d3ab2526bbddc059cbe6c370c5c809f911a",
+      "target_sha256": "6db8ef0ced9be2738382c63a4ec14d3ab2526bbddc059cbe6c370c5c809f911a"
+    },
+    {
+      "source": "01_full_audit/03_experiment/results/paired_AP.csv",
+      "target": "protocol/historical/original_paired_AP.csv",
+      "sha256": "d843b564f4beda0590f9ebfa8fd6439c1d60fba7f1188890cd0a274b9df40618",
+      "target_sha256": "8b7de2f31111fab64022f211fa9122927db22dedaa865e3d013f8cf91ed90d06",
+      "transformation": "Four-RQ source-row filtering; sha256 field is original-source hash, target_sha256 is exported subset"
+    },
+    {
+      "source": "01_full_audit/03_experiment/results/evaluation_metadata.json",
+      "target": "protocol/historical/original_statistics.json",
+      "sha256": "e57bb03ae5cc9cbfb1d7f5df25a8c706b6dc6fc0b6a7bea34c6b04926686a158",
+      "target_sha256": "e57bb03ae5cc9cbfb1d7f5df25a8c706b6dc6fc0b6a7bea34c6b04926686a158"
+    },
+    {
+      "source": "01_full_audit/03_experiment/results/contract.json",
+      "target": "protocol/historical/original_contract.json",
+      "sha256": "ac9a0e71e99439de8b124e542717141efc922bf46a75eb62f25397993fba40ee",
+      "target_sha256": "ac9a0e71e99439de8b124e542717141efc922bf46a75eb62f25397993fba40ee"
+    },
+    {
+      "source": "completion_v2/plan.json",
+      "target": "protocol/historical/v2_plan.json",
+      "sha256": "3ad8edebbac0458609556b13af7acc658b74d63563db6e8f75ad41aeb6fb3c71",
+      "target_sha256": "3ad8edebbac0458609556b13af7acc658b74d63563db6e8f75ad41aeb6fb3c71"
+    },
+    {
+      "source": "completion_v2/results/main/exploratory_paired_AP.csv",
+      "target": "protocol/historical/v2_paired_AP.csv",
+      "sha256": "c7b8394e91cc01153189ce39f217003ae82ebb82fe37ea46e00576d2f4d92d0d",
+      "target_sha256": "b90c4c72f11f9887896c99378c660a1a929cd35838514aaa8421006c27c8f915",
+      "transformation": "Four-RQ source-row filtering; sha256 field is original-source hash, target_sha256 is exported subset"
+    },
+    {
+      "source": "completion_v2/results/main/uncertainty_metadata.json",
+      "target": "protocol/historical/v2_statistics.json",
+      "sha256": "ceeaaca8606775ae6a0bf58fea16c274f39a482efc910285abc574ee013c4d96",
+      "target_sha256": "ceeaaca8606775ae6a0bf58fea16c274f39a482efc910285abc574ee013c4d96"
+    },
+    {
+      "source": "completion_v2/results/transfer/data_request.json",
+      "target": "protocol/data_request.json",
+      "sha256": "69fb4531ac86f137e0b19c8ac9e5f02a99fa17e38c50c053798f38ffb7b9e8c0",
+      "target_sha256": "69fb4531ac86f137e0b19c8ac9e5f02a99fa17e38c50c053798f38ffb7b9e8c0"
+    },
+    {
+      "source": "completion_v2/results/transfer/source_closure_audit.json",
+      "target": "protocol/source_review.json",
+      "sha256": "ed006b5505acfd1eac07a7f192fe31d8e0bb38c244da52b2be7819a910f81504",
+      "target_sha256": "ed006b5505acfd1eac07a7f192fe31d8e0bb38c244da52b2be7819a910f81504"
+    },
+    {
+      "source": "01_full_audit/results/integrity/01_summary.md",
+      "target": "protocol/data_audit.md",
+      "sha256": "ea852eb91f34e4fa1370bd6e6d1e1331e80732ac4000d002984ece7c49febc59",
+      "target_sha256": "ea852eb91f34e4fa1370bd6e6d1e1331e80732ac4000d002984ece7c49febc59"
+    },
+    {
+      "source": "completion_v2/results/main/metrics.csv",
+      "target": "protocol/reference/main_metrics.csv",
+      "sha256": "2ff8b6bcf4776f26a6bda316c0688c510b346dc292473e4b2941b5aaad5168d6",
+      "target_sha256": "1fca055cbe169c2ac9b84c1aacf5cb3e1d344d4ee43da07257a47c2633e10bd6",
+      "transformation": "Four-RQ source-row filtering; sha256 field is original-source hash, target_sha256 is exported subset"
+    },
+    {
+      "source": "completion_v2/ablation_results/factorial_effects.csv",
+      "target": "protocol/reference/factorial_effects.csv",
+      "sha256": "7b2629cf916b600f05873663ec2fa3a05404d4257eb170e317cac372b0388f01",
+      "target_sha256": "7b2629cf916b600f05873663ec2fa3a05404d4257eb170e317cac372b0388f01"
+    },
+    {
+      "source": "completion_v2/results/transfer/transfer_metrics.csv",
+      "target": "protocol/reference/transfer_metrics.csv",
+      "sha256": "b3b202a848768a188e62938a3d7deea466ceae0de44065c43a67afe158cc5ffe",
+      "target_sha256": "8d9ba087bf259fb429c1078643143b61fed950b8967a801ff2d328efdf6d3ef3",
+      "transformation": "Four-RQ source-row filtering; sha256 field is original-source hash, target_sha256 is exported subset"
+    },
+    {
+      "source": "01_full_audit/03_experiment/src/features.py",
+      "target": "experiment/features.py",
+      "sha256": "e6dfa12d462a7f6e73050d232890c9a2dd9a3f43ca202a87334f8ba201f9883a",
+      "target_sha256": "e6dfa12d462a7f6e73050d232890c9a2dd9a3f43ca202a87334f8ba201f9883a"
+    },
+    {
+      "source": "01_full_audit/03_experiment/src/evaluation.py",
+      "target": "experiment/evaluation.py",
+      "sha256": "2bc7a7125b1bdeb4e7e3bbda488d1b906c1b7edbabd9f7aa3d054efa3e2bba22",
+      "target_sha256": "2bc7a7125b1bdeb4e7e3bbda488d1b906c1b7edbabd9f7aa3d054efa3e2bba22"
+    },
+    {
+      "source": "01_full_audit/03_experiment/src/models.py",
+      "target": "experiment/models.py",
+      "sha256": "16519f9bd49c03523d7a253dc152a67f33ad98885e1294ac0e4abe325f273348",
+      "target_sha256": "48d9532f10deaa86a3bdfffe0d23b4b71252b09c843c0f54c7bb29b9cf61a618"
+    }
+  ],
+  "source_code_sha256": {
+    "completion_v2/training.py": "f930b239e39d5f24028b9e1eec33c3acd2e719958eae1306e35e5323875bfe11",
+    "completion_v2/common.py": "0f0f32cea2ac3a89f01355ea1138cfd07a01779ca1d79b10ce2c9b8b9e6692db",
+    "completion_v2/ablation.py": "58d59e6925a13cbe31fe733d724d3b5ab0c58eda4f7d6019a95a96cfee28b3a4",
+    "01_full_audit/03_experiment/src/features.py": "e6dfa12d462a7f6e73050d232890c9a2dd9a3f43ca202a87334f8ba201f9883a",
+    "01_full_audit/03_experiment/src/models.py": "16519f9bd49c03523d7a253dc152a67f33ad98885e1294ac0e4abe325f273348",
+    "01_full_audit/03_experiment/src/evaluation.py": "2bc7a7125b1bdeb4e7e3bbda488d1b906c1b7edbabd9f7aa3d054efa3e2bba22"
+  }
+}

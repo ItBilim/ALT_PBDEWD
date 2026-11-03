@@ -1,0 +1,254 @@
+{
+  "datasets": [
+    "NonEnc_desktop",
+    "NonEnc_smartphone",
+    "P2P_desktop",
+    "P2P_smartphone"
+  ],
+  "seed": 20261023,
+  "n_jobs": 2,
+  "splits": [
+    {
+      "name": "DEV0",
+      "lower": "2023-09-28",
+      "upper": "2023-10-02"
+    },
+    {
+      "name": "DEV1",
+      "lower": "2023-10-02",
+      "upper": "2023-10-05"
+    },
+    {
+      "name": "DEV2",
+      "lower": "2023-10-05",
+      "upper": "2023-10-09"
+    },
+    {
+      "name": "DEV3",
+      "lower": "2023-10-09",
+      "upper": "2023-10-12"
+    },
+    {
+      "name": "FINAL",
+      "lower": "2023-10-12",
+      "upper": "2023-10-17"
+    }
+  ],
+  "calibration": {
+    "method": "Unweighted logistic sigmoid of clipped model logit on held-out chronological calibration block",
+    "regularization_C": 1,
+    "epsilon": 1e-06,
+    "evaluation": [
+      "AP",
+      "ROC_AUC",
+      "BRIER",
+      "ECE10",
+      "daily_precision_recall1and5percent"
+    ],
+    "interpretation": "Held-out calibrated probability estimate; reliability must be evaluated, no accuracy guarantee"
+  },
+  "statistics": {
+    "primary32": "Original32 confirmatory-under-retrospective-fixed-plan comparisons preserved unchanged",
+    "new": "Exploratory40 pairedcontrasts with10k shared global-user Poisson bootstrap95percent and Bonferroni intervals; no new confirmatory claims",
+    "bootstrap_repeats": 10000,
+    "new_family_size": 40,
+    "primary_models": [
+      "LR",
+      "HGB"
+    ],
+    "new_contrasts": [
+      [
+        "R1_HISTORY",
+        "R0_CURRENT"
+      ],
+      [
+        "R2_STATIC",
+        "R1_HISTORY"
+      ],
+      [
+        "R3_ADAPTIVE",
+        "R2_STATIC"
+      ],
+      [
+        "R4_DRIFT",
+        "R3_ADAPTIVE"
+      ],
+      [
+        "R4_DRIFT",
+        "R1_HISTORY"
+      ]
+    ]
+  },
+  "limitations": [
+    "Clock/window and source generator semantics remain independently unverified",
+    "Stable user labels cannot identify incident onset,normal pre-onset history,continuous negative coverage or recovery",
+    "Fourfiles are not external independent datasets",
+    "DEV0 early history and inner calibration can havefewpositiveusers; exactsupportreported",
+    "FINAL and previousAGA/Merei results already seen beforecompletion",
+    "Original source24+4 indicators cannot be reconstructed frommissingrawfields;15conditionalpredictors retained",
+    "Original futureonset/H1H3H7 episodeobjectives remainunidentifiable"
+  ],
+  "protocol_id": "PBDEWD_FOUR_RQ_REVIEWER",
+  "date": "2026-11-02",
+  "models": [
+    "LR",
+    "HGB"
+  ],
+  "representations": [
+    "R0_CURRENT",
+    "R1_HISTORY",
+    "R2_STATIC",
+    "R3_ADAPTIVE",
+    "R4_DRIFT"
+  ],
+  "hpo": {
+    "trials_per_model_representation_fold": 12,
+    "objective": "Inner selection AP",
+    "ties": "Lowest fixed grid index",
+    "LR": [
+      {
+        "C": 0.0001
+      },
+      {
+        "C": 0.001
+      },
+      {
+        "C": 0.01
+      },
+      {
+        "C": 0.03
+      },
+      {
+        "C": 0.1
+      },
+      {
+        "C": 0.3
+      },
+      {
+        "C": 1
+      },
+      {
+        "C": 3
+      },
+      {
+        "C": 10
+      },
+      {
+        "C": 30
+      },
+      {
+        "C": 100
+      },
+      {
+        "C": 1000
+      }
+    ],
+    "HGB": [
+      {
+        "max_leaf_nodes": 7,
+        "l2_regularization": 0
+      },
+      {
+        "max_leaf_nodes": 7,
+        "l2_regularization": 0.1
+      },
+      {
+        "max_leaf_nodes": 7,
+        "l2_regularization": 1
+      },
+      {
+        "max_leaf_nodes": 7,
+        "l2_regularization": 10
+      },
+      {
+        "max_leaf_nodes": 15,
+        "l2_regularization": 0
+      },
+      {
+        "max_leaf_nodes": 15,
+        "l2_regularization": 0.1
+      },
+      {
+        "max_leaf_nodes": 15,
+        "l2_regularization": 1
+      },
+      {
+        "max_leaf_nodes": 15,
+        "l2_regularization": 10
+      },
+      {
+        "max_leaf_nodes": 31,
+        "l2_regularization": 0
+      },
+      {
+        "max_leaf_nodes": 31,
+        "l2_regularization": 0.1
+      },
+      {
+        "max_leaf_nodes": 31,
+        "l2_regularization": 1
+      },
+      {
+        "max_leaf_nodes": 31,
+        "l2_regularization": 10
+      }
+    ]
+  },
+  "original_v2_registration": "POST_RESULTS_EXPLORATORY_COMPLETION_NOT_PROSPECTIVE_CONFIRMATORY",
+  "registration": "RETROSPECTIVE_REPRODUCTION_OF_EXISTING_POST_RESULTS_DESIGN",
+  "factorial_masks": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "transfer_pairs": [
+    [
+      "NonEnc_desktop",
+      "NonEnc_smartphone"
+    ],
+    [
+      "NonEnc_smartphone",
+      "NonEnc_desktop"
+    ],
+    [
+      "P2P_desktop",
+      "P2P_smartphone"
+    ],
+    [
+      "P2P_smartphone",
+      "P2P_desktop"
+    ]
+  ],
+  "expected_counts": {
+    "main_selected_models": 200,
+    "factorial_selected_models": 320,
+    "hpo_trial_fits": 2400,
+    "selected_estimator_fits": 520,
+    "calibrator_fits": 520
+  },
+  "data_unit": "one selected completed window per eligible user and decision day",
+  "paper_scope": {
+    "RQ1": "R1-R0 combined history/activity/window-age block",
+    "RQ2": "R4-R1 incremental profile value",
+    "RQ3": "8mask S/A/D factorial including SxA movement",
+    "RQ4": "device/scenario heterogeneity and device transfer; no cross-risk transfer claim"
+  },
+  "features": {
+    "history_gap_hours": 2.0,
+    "source_thinning_gap_hours": 2.0,
+    "static_count": 3,
+    "ewma_alpha": 0.1,
+    "drift_window": 6,
+    "min_history_count": 12,
+    "min_history_dates": 3,
+    "epsilon": 1e-06,
+    "deviation_clip": 25.0,
+    "min_static_finite": 2,
+    "min_drift_window_finite": 3
+  }
+}

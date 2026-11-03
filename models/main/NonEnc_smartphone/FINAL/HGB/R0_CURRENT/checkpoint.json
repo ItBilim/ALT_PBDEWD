@@ -1,0 +1,263 @@
+{
+  "binding": {
+    "base": {
+      "inputs": {
+        "protocol\\plan.json": "e3090a832ce8761c6273dca4d14218178824df440c7b08d294a412f59bdd4c35",
+        "data\\prepared\\NonEnc_smartphone.parquet": "7b2cca58c7bbb9daac86394b99ec4548bb70dc19649d62b2e00ebfd36a768328",
+        "data\\prepared\\NonEnc_smartphone_features.json": "466b6bd210472a9442860a40ccc1cc2878d9025875e38ba39e93d6f5b22ef6ec",
+        "experiment\\common.py": "52f1d83f57e0413dfe9d87dd8ed4c103caf272ed91c46bcd73a12fe6e6dd961c",
+        "experiment\\training.py": "0421863875393d00a3d5ba97b1ff6836a53f989e489c4ccdf201c2d2631d8dc3",
+        "experiment\\models.py": "48d9532f10deaa86a3bdfffe0d23b4b71252b09c843c0f54c7bb29b9cf61a618",
+        "experiment\\features.py": "e6dfa12d462a7f6e73050d232890c9a2dd9a3f43ca202a87334f8ba201f9883a",
+        "experiment\\splits.py": "5a92c877e55e256abbb364182e210c23afef95d141bd9064f299d468c67d2870",
+        "experiment\\factorial.py": "38de15889c5e9c39292e31dc8b2b7dd697d521e74d082a77fa2e93b4e96258e5",
+        "experiment\\prepare.py": "64e680541d29f6d3dc9ec0890584fd6327700f9ab5012e998eaaa6a8afab0aa0"
+      },
+      "train_row_sha256": "aac5fce0f795d8bd6d5bb2ef38d032998b8660171c335d0053de8ae2d282cda1",
+      "evaluation_identity_sha256": "6f45d35925348745cdea7be272515abaffb490512385c5ab07896c18f95cfaae",
+      "partition": {
+        "selection_lower": "2023-10-07 00:00:00",
+        "calibration_lower": "2023-10-10 00:00:00",
+        "rule": "Label-free cumulative row mass60/80percent on observed training days with boundary purge; no outcome-based cutoff search",
+        "fitting_rows": 2199,
+        "selection_rows": 494,
+        "calibration_rows": 863,
+        "refit_rows": 2693,
+        "calibration_positive_users": 90,
+        "calibration_negative_users": 395,
+        "envelope_purging": true,
+        "calibration_not_in_estimator_refit": true,
+        "outer_evaluation_labels_used": false,
+        "parts": {
+          "inner_fit": {
+            "rows": 2199,
+            "users": 471,
+            "positives": 491,
+            "positive_users": 91,
+            "negative_users": 380,
+            "row_sha256": "9320188d8440ea5efb0200f6d576035f4d5905e57a4166d8f3f8a6228c072ef5",
+            "earliest_window_start": "2023-09-22 10:10:00",
+            "latest_available_at": "2023-10-06 23:50:00",
+            "earliest_decision": "2023-09-23 00:00:00",
+            "latest_decision": "2023-10-07 00:00:00"
+          },
+          "inner_select": {
+            "rows": 494,
+            "users": 425,
+            "positives": 88,
+            "positive_users": 79,
+            "negative_users": 346,
+            "row_sha256": "d1c8f14e9e188fb85a53f94f9b79c775aff3a471ef5bc7cb6a870fded969237b",
+            "earliest_window_start": "2023-10-07 04:10:00",
+            "latest_available_at": "2023-10-09 23:50:00",
+            "earliest_decision": "2023-10-08 00:00:00",
+            "latest_decision": "2023-10-10 00:00:00"
+          },
+          "calibration": {
+            "rows": 863,
+            "users": 485,
+            "positives": 155,
+            "positive_users": 90,
+            "negative_users": 395,
+            "row_sha256": "38d6d775d806c88e48dbfffaa9e0d26cfc9a53713447195cbd061f287f09da95",
+            "earliest_window_start": "2023-10-10 05:10:00",
+            "latest_available_at": "2023-10-11 23:10:00",
+            "earliest_decision": "2023-10-11 00:00:00",
+            "latest_decision": "2023-10-12 00:00:00"
+          },
+          "refit": {
+            "rows": 2693,
+            "users": 501,
+            "positives": 579,
+            "positive_users": 94,
+            "negative_users": 407,
+            "row_sha256": "e3026046c7a30e86d2d8963a1204fb5dfb9d45bbb4da2b4b29c650ac2cd6a9cb",
+            "earliest_window_start": "2023-09-22 10:10:00",
+            "latest_available_at": "2023-10-09 23:50:00",
+            "earliest_decision": "2023-09-23 00:00:00",
+            "latest_decision": "2023-10-10 00:00:00"
+          }
+        }
+      },
+      "model_config": {
+        "seed": 20261023,
+        "n_jobs": 2,
+        "candidate_grids": {
+          "trials_per_model_representation_fold": 12,
+          "objective": "Inner selection AP",
+          "ties": "Lowest fixed grid index",
+          "LR": [
+            {
+              "C": 0.0001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.03
+            },
+            {
+              "C": 0.1
+            },
+            {
+              "C": 0.3
+            },
+            {
+              "C": 1
+            },
+            {
+              "C": 3
+            },
+            {
+              "C": 10
+            },
+            {
+              "C": 30
+            },
+            {
+              "C": 100
+            },
+            {
+              "C": 1000
+            }
+          ],
+          "HGB": [
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 10
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 10
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 10
+            }
+          ]
+        },
+        "calibration_C": 1,
+        "probability_clip": 1e-06
+      },
+      "columns": [
+        "current__dns_non_reserved_dstport_ratio",
+        "current__dns_non_reserved_srcport_ratio",
+        "current__dns_protocol_tcp_ratio",
+        "current__dns_rcode_nxdomain_ratio",
+        "current__http_method_get_ratio",
+        "current__http_method_head_ratio",
+        "current__http_method_post_ratio",
+        "current__http_method_put_ratio",
+        "current__smtp_in_mean_hops",
+        "current__smtp_subject_num_characters",
+        "current__smtp_subject_num_words",
+        "current__ssl_established_ratio",
+        "current__ssl_version_ratio_v10",
+        "current__ssl_version_ratio_v20",
+        "current__ssl_version_ratio_v30"
+      ]
+    },
+    "model": "HGB",
+    "columns": [
+      "current__dns_non_reserved_dstport_ratio",
+      "current__dns_non_reserved_srcport_ratio",
+      "current__dns_protocol_tcp_ratio",
+      "current__dns_rcode_nxdomain_ratio",
+      "current__http_method_get_ratio",
+      "current__http_method_head_ratio",
+      "current__http_method_post_ratio",
+      "current__http_method_put_ratio",
+      "current__smtp_in_mean_hops",
+      "current__smtp_subject_num_characters",
+      "current__smtp_subject_num_words",
+      "current__ssl_established_ratio",
+      "current__ssl_version_ratio_v10",
+      "current__ssl_version_ratio_v20",
+      "current__ssl_version_ratio_v30"
+    ],
+    "candidate": null
+  },
+  "files": {
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\model.pkl": "eb2209ff281707ab66eeaef65892f44e4e8afbaf16f80c7d6a4033b2d1fc64ba",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\predictions.parquet": "a973f6e197465480aa7773338c94b539af2dc1db56d8b792f9f77a0932ec3282",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\calibration_predictions.parquet": "2dcf1c82b4d349b76e68aff10852c40dee5b630d7f36268beab23200c161ef13",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\partition_rows.parquet": "136ca301633a6ee74699c472e3efb631e12396023bca17bc0874c31b8009b4ef",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\fit.json": "1ef3eefebd1348f4831486f6b75a87da70cb3444ba2e3e6fa0c94b63f86d8267",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_00.json": "ca8cb5fc3dc20dd31e1a0baa8647085df5164c5b552dab900fcec32b15da3200",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_00.parquet": "f9078628808328c97710b4e51c72a0ee641603218f6726e9bf7603803a9b1689",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_00.sha256.json": "2cccf04387267891450ea84beedb2a493be5dcafcdef75fc7223ca3c8af0743e",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_01.json": "ea26968a41cd7b9dd1545aee65ead5891cddde34344b5efc5a369d45b5b63edb",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_01.parquet": "666318cd72f2888fb0a1935d5b26b7f6f86d398041c465a511d5fe76915251be",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_01.sha256.json": "a91c2bd94bacb2efe1b4052b7ea8b40203fc738c2e8fa8690fc72edc34465767",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_02.json": "ef821166acba11635c5be0fdb79bc1b5464657900ccf6fa9a62732f478967903",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_02.parquet": "675109245151563743ac17530f30b940ed5acef320b5eb374548839e27c744b8",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_02.sha256.json": "a7cba479a0e76f3f18ce7f5a11afd1aa7e71854336042f8c3f7595b77fbfa329",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_03.json": "c1c2c0fbeea08d796cad6086c75bd8ed59e68f15a729567eb14e214fca354b11",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_03.parquet": "c4a9df4fc9dd8700c729dad06b2431aec7fab33b5709c4851e3df934612e345f",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_03.sha256.json": "06fd99cdca74af613b4fd36eae85055263808770092f94dccfd68b91fe00e498",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_04.json": "ec9acdae23b96e0ee831dea05715bd2a83658d742e00ce39ae28c4d5998de5e4",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_04.parquet": "e67a9fd2500f6dcbf695fe5a8f8f43f6dd07521dc889f356de66b5392f234cdf",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_04.sha256.json": "0085fb2dd9992d3eba1aa2b67544edd1a4ddaaa58376c8c197087f343e6497e9",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_05.json": "b0d4b1edc3915690dfbd8ff40212e77d06aa7fc15883d69c0956a61d9a08e404",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_05.parquet": "84dbaa3a6fd6fb734f2144d6b06da42a0f89cb9e1b377d792daf7034e868ddde",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_05.sha256.json": "e9aa3071361eb56f6abd1428ab7da4ab8e8dd3d030b75a56679439aedc00a1e8",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_06.json": "f3867a7104fc6477c739ea3431627d569bc506f31117a2373a84cec7be6b4139",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_06.parquet": "571494927931240e5580480f9a813cf1813fa17cb87e60bc3b5f6090c4e6e525",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_06.sha256.json": "e3a75115b69d702b3777daba6078dd66cfee8f48ecd4b4041b808d7a11d03ca3",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_07.json": "b4371342bef9d5bc80168065fc534c8890a531da81261780fe6d3bb8fcda4659",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_07.parquet": "3db66e0750f400db959a0f969e45c1433e8c2ee5a979daaf30fa8261e5d32b3a",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_07.sha256.json": "029f9f91c463e502539f842e8692f8a59e244421e409a3071f197a6fb3b5bf54",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_08.json": "1a77f505a7e2f567943369318980127be00c9f5c6f6cdd5065360774e95a161b",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_08.parquet": "57fe05d958bd26ebec5fed6fc2fd958316f56f648def2042f9a8698ef2857a0a",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_08.sha256.json": "9c979739ba40dbc9469340bf24ea827fc697656c476ce9fce40b68d0de8879b9",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_09.json": "104a79b557cfe6a9e42d39a2fe9836c414f77607d1521e300c217c963b78c2d8",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_09.parquet": "bfbc1d39fa546d68d924700866d6a160775572643a4a4e3498a180acf319c448",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_09.sha256.json": "3867cd0e79f9981e2f7bca37f9103166bd101f8fc6bc93645bc9fb0f10c0b81b",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_10.json": "f961f337aa4d15f0d22ca3b8df4c5fadd89c9c003cf9fe2f42c846b9dcd63c27",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_10.parquet": "4f54556892766dc9543e7346294412b8bd8e7a5263ab2a379517c8a91224be99",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_10.sha256.json": "7af2a1d231ae53b8997ac107cb2c3892e924b79444f8998c56ccdd25161f78dc",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_11.json": "0f1a3b47bd3b1d45794843b565457af8099bbd7484022c9dcb9d0bfd5b4f3ada",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_11.parquet": "04cce8eb7816d275729424ca8039d47dd8fd2a51cdd2959f4ce53d1edf454d00",
+    "models\\main\\NonEnc_smartphone\\FINAL\\HGB\\R0_CURRENT\\trials\\trial_11.sha256.json": "f5745b45490ddc17be2dcfc1bc53b49d0001bc33e079d9925fad9561a5ca5740"
+  },
+  "status": "COMPLETE"
+}

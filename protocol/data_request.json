@@ -1,0 +1,83 @@
+{
+  "status": "OPEN_EXTERNAL_EVIDENCE_DEPENDENCY",
+  "requires_new_user_approval": false,
+  "purpose": "Minimum authoritative inputs to evaluate original future-onset/early-warning objective",
+  "approved_current_scope": "Completed-window daily risk ranking only; existing labels and raw rows remain immutable",
+  "requested_evidence": [
+    {
+      "id": "INCIDENT_TRUTH",
+      "minimum_fields": [
+        "stable incident_id",
+        "exact released user_id linkage",
+        "risk/scenario type",
+        "onset timestamp or bounded onset_lower/onset_upper",
+        "annotation source and ascertainment method",
+        "timestamp timezone and resolution",
+        "whether event was present at first observation"
+      ],
+      "reason": "Released positive user labels and first-positive window timestamps do not independently locate a new incident onset"
+    },
+    {
+      "id": "RECOVERY_AND_AT_RISK",
+      "minimum_fields": [
+        "incident recovery/end timestamp or uncertainty interval",
+        "documented negative/washout state",
+        "criteria for recurrent episode independence",
+        "ongoing/prevalent status"
+      ],
+      "reason": "A no-record gap cannot establish recovery, safety or a new episode"
+    },
+    {
+      "id": "OBSERVATION_COVERAGE",
+      "minimum_fields": [
+        "user/device monitoring start and end",
+        "known uptime/heartbeat intervals",
+        "outages and observation gaps",
+        "label ascertainment coverage",
+        "right/left censoring definitions"
+      ],
+      "reason": "Future negative target and false-alert exposure require verified followup; missing rows cannot be treated as negative"
+    },
+    {
+      "id": "WINDOW_CLOCK",
+      "minimum_fields": [
+        "released timestamp role START/END/other",
+        "timezone and daylight-saving policy",
+        "window duration and stride",
+        "available_at/processing latency",
+        "original observation identity and duplicate-key rules"
+      ],
+      "reason": "Conservative W1h boundary is a declared conditional design, not verified source semantics"
+    },
+    {
+      "id": "GENERATOR_AND_CODEBOOK",
+      "minimum_fields": [
+        "dataset-version-matched generator source/version/hash",
+        "field-level formulas, denominators, missing/zero semantics and units",
+        "label generation and propagation algorithm",
+        "raw log to user/window mapping",
+        "privacy/anonymization identity linkage contract"
+      ],
+      "reason": "Conceptual paper mapping and numeric fields cannot independently verify released feature generation or availability"
+    },
+    {
+      "id": "HISTORICAL_24_PLUS4_REGISTRY",
+      "minimum_fields": [
+        "authoritative exact24CORE and4sensitivity membership",
+        "each field source and availability",
+        "required raw inputs absent from the current85-column release",
+        "mapping/version evidence for any proposed replacement"
+      ],
+      "reason": "The current15 conditional predictors cannot reconstruct missing original fields or prove historical24+4 membership"
+    }
+  ],
+  "evidence_acceptance": "Versioned source material with identity/time mapping and source hashes; rerun affected contracts after evidence validation",
+  "prohibited_substitutions": [
+    "Synthetic onset from first positive timestamp",
+    "Unknown followup assigned negative",
+    "Gap treated as incident recovery",
+    "Drift/change-point used as its own outcome label",
+    "New code or high accuracy presented as verification of missing source facts"
+  ],
+  "current_estimable_results_remain_valid_only_within_their_declared_conditional_scope": true
+}

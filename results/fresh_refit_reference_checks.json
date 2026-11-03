@@ -1,0 +1,16 @@
+[
+  {
+    "branch": "main",
+    "status": "PASS_FRESH_FITS_MATCH_PREVIOUS_PREDICTIONS",
+    "rows": 147060,
+    "tolerance_rtol": 1e-10,
+    "tolerance_atol": 1e-12
+  },
+  {
+    "branch": "factorial",
+    "status": "PASS_FRESH_FITS_MATCH_PREVIOUS_PREDICTIONS",
+    "rows": 235296,
+    "tolerance_rtol": 1e-10,
+    "tolerance_atol": 1e-12
+  }
+]

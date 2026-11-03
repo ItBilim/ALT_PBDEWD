@@ -1,0 +1,391 @@
+{
+  "binding": {
+    "base": {
+      "inputs": {
+        "protocol\\plan.json": "e3090a832ce8761c6273dca4d14218178824df440c7b08d294a412f59bdd4c35",
+        "data\\prepared\\P2P_smartphone.parquet": "d9e14c0d9655f8d02e28558a9e55e992fa22a18356d5ac34fdeee6d9cb258aa5",
+        "data\\prepared\\P2P_smartphone_features.json": "797bc07dd1b3bffcd240158dab355edaf97f81500aa4388ffb6cd892e7570e40",
+        "experiment\\common.py": "52f1d83f57e0413dfe9d87dd8ed4c103caf272ed91c46bcd73a12fe6e6dd961c",
+        "experiment\\training.py": "0421863875393d00a3d5ba97b1ff6836a53f989e489c4ccdf201c2d2631d8dc3",
+        "experiment\\models.py": "48d9532f10deaa86a3bdfffe0d23b4b71252b09c843c0f54c7bb29b9cf61a618",
+        "experiment\\features.py": "e6dfa12d462a7f6e73050d232890c9a2dd9a3f43ca202a87334f8ba201f9883a",
+        "experiment\\splits.py": "5a92c877e55e256abbb364182e210c23afef95d141bd9064f299d468c67d2870",
+        "experiment\\factorial.py": "38de15889c5e9c39292e31dc8b2b7dd697d521e74d082a77fa2e93b4e96258e5",
+        "experiment\\prepare.py": "64e680541d29f6d3dc9ec0890584fd6327700f9ab5012e998eaaa6a8afab0aa0"
+      },
+      "train_row_sha256": "cb81766dc1cfb1cb07be03035a6904214a83092ec3d1abff3a7bb0e1c01ff896",
+      "evaluation_identity_sha256": "18a0bbf0ad7caf56ff607dc5c07de9e3a19aa80a24c01fc6cebaeb628dc569d6",
+      "partition": {
+        "selection_lower": "2023-09-26 00:00:00",
+        "calibration_lower": "2023-09-27 00:00:00",
+        "rule": "Label-free cumulative row mass60/80percent on observed training days with boundary purge; no outcome-based cutoff search",
+        "fitting_rows": 203,
+        "selection_rows": 225,
+        "calibration_rows": 302,
+        "refit_rows": 428,
+        "calibration_positive_users": 35,
+        "calibration_negative_users": 267,
+        "envelope_purging": true,
+        "calibration_not_in_estimator_refit": true,
+        "outer_evaluation_labels_used": false,
+        "parts": {
+          "inner_fit": {
+            "rows": 203,
+            "users": 141,
+            "positives": 8,
+            "positive_users": 7,
+            "negative_users": 134,
+            "row_sha256": "9338dc6f7e3e90a27130db13b51f42334577d6d13abbf0da45585a01fdf857f5",
+            "earliest_window_start": "2023-09-22 10:10:00",
+            "latest_available_at": "2023-09-25 21:40:00",
+            "earliest_decision": "2023-09-23 00:00:00",
+            "latest_decision": "2023-09-26 00:00:00"
+          },
+          "inner_select": {
+            "rows": 225,
+            "users": 225,
+            "positives": 24,
+            "positive_users": 24,
+            "negative_users": 201,
+            "row_sha256": "42eb34ba48deb2062f0be3415ebef2ef233b10acb5bac8e3e3287acafc9eff33",
+            "earliest_window_start": "2023-09-26 06:20:00",
+            "latest_available_at": "2023-09-26 22:00:00",
+            "earliest_decision": "2023-09-27 00:00:00",
+            "latest_decision": "2023-09-27 00:00:00"
+          },
+          "calibration": {
+            "rows": 302,
+            "users": 302,
+            "positives": 35,
+            "positive_users": 35,
+            "negative_users": 267,
+            "row_sha256": "677a5846e7757f6f78ebd43ad5ab327dffd389f3401d5b44f2fd2e02ff22abb0",
+            "earliest_window_start": "2023-09-27 06:20:00",
+            "latest_available_at": "2023-09-27 23:30:00",
+            "earliest_decision": "2023-09-28 00:00:00",
+            "latest_decision": "2023-09-28 00:00:00"
+          },
+          "refit": {
+            "rows": 428,
+            "users": 237,
+            "positives": 32,
+            "positive_users": 24,
+            "negative_users": 213,
+            "row_sha256": "f15e4fd2b59ce2fbb811e8c270d31a59c979c2a38c2539ad730ac390d109d71c",
+            "earliest_window_start": "2023-09-22 10:10:00",
+            "latest_available_at": "2023-09-26 22:00:00",
+            "earliest_decision": "2023-09-23 00:00:00",
+            "latest_decision": "2023-09-27 00:00:00"
+          }
+        }
+      },
+      "model_config": {
+        "seed": 20261023,
+        "n_jobs": 2,
+        "candidate_grids": {
+          "trials_per_model_representation_fold": 12,
+          "objective": "Inner selection AP",
+          "ties": "Lowest fixed grid index",
+          "LR": [
+            {
+              "C": 0.0001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.03
+            },
+            {
+              "C": 0.1
+            },
+            {
+              "C": 0.3
+            },
+            {
+              "C": 1
+            },
+            {
+              "C": 3
+            },
+            {
+              "C": 10
+            },
+            {
+              "C": 30
+            },
+            {
+              "C": 100
+            },
+            {
+              "C": 1000
+            }
+          ],
+          "HGB": [
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 10
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 10
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 10
+            }
+          ]
+        },
+        "calibration_C": 1,
+        "probability_clip": 1e-06
+      },
+      "columns": [
+        "current__dns_non_reserved_dstport_ratio",
+        "current__dns_non_reserved_srcport_ratio",
+        "current__dns_protocol_tcp_ratio",
+        "current__dns_rcode_nxdomain_ratio",
+        "current__http_method_get_ratio",
+        "current__http_method_head_ratio",
+        "current__http_method_post_ratio",
+        "current__http_method_put_ratio",
+        "current__smtp_in_mean_hops",
+        "current__smtp_subject_num_characters",
+        "current__smtp_subject_num_words",
+        "current__ssl_established_ratio",
+        "current__ssl_version_ratio_v10",
+        "current__ssl_version_ratio_v20",
+        "current__ssl_version_ratio_v30",
+        "history_mean__dns_non_reserved_dstport_ratio",
+        "history_mean__dns_non_reserved_srcport_ratio",
+        "history_mean__dns_protocol_tcp_ratio",
+        "history_mean__dns_rcode_nxdomain_ratio",
+        "history_mean__http_method_get_ratio",
+        "history_mean__http_method_head_ratio",
+        "history_mean__http_method_post_ratio",
+        "history_mean__http_method_put_ratio",
+        "history_mean__smtp_in_mean_hops",
+        "history_mean__smtp_subject_num_characters",
+        "history_mean__smtp_subject_num_words",
+        "history_mean__ssl_established_ratio",
+        "history_mean__ssl_version_ratio_v10",
+        "history_mean__ssl_version_ratio_v20",
+        "history_mean__ssl_version_ratio_v30",
+        "history__log1p_count",
+        "history__log1p_last_age_hours",
+        "history__span_hours",
+        "static_abs_z__dns_non_reserved_dstport_ratio",
+        "static_abs_z__dns_non_reserved_srcport_ratio",
+        "static_abs_z__dns_protocol_tcp_ratio",
+        "static_abs_z__dns_rcode_nxdomain_ratio",
+        "static_abs_z__http_method_get_ratio",
+        "static_abs_z__http_method_head_ratio",
+        "static_abs_z__http_method_post_ratio",
+        "static_abs_z__http_method_put_ratio",
+        "static_abs_z__smtp_in_mean_hops",
+        "static_abs_z__smtp_subject_num_characters",
+        "static_abs_z__smtp_subject_num_words",
+        "static_abs_z__ssl_established_ratio",
+        "static_abs_z__ssl_version_ratio_v10",
+        "static_abs_z__ssl_version_ratio_v20",
+        "static_abs_z__ssl_version_ratio_v30",
+        "adaptive_abs_z__dns_non_reserved_dstport_ratio",
+        "adaptive_abs_z__dns_non_reserved_srcport_ratio",
+        "adaptive_abs_z__dns_protocol_tcp_ratio",
+        "adaptive_abs_z__dns_rcode_nxdomain_ratio",
+        "adaptive_abs_z__http_method_get_ratio",
+        "adaptive_abs_z__http_method_head_ratio",
+        "adaptive_abs_z__http_method_post_ratio",
+        "adaptive_abs_z__http_method_put_ratio",
+        "adaptive_abs_z__smtp_in_mean_hops",
+        "adaptive_abs_z__smtp_subject_num_characters",
+        "adaptive_abs_z__smtp_subject_num_words",
+        "adaptive_abs_z__ssl_established_ratio",
+        "adaptive_abs_z__ssl_version_ratio_v10",
+        "adaptive_abs_z__ssl_version_ratio_v20",
+        "adaptive_abs_z__ssl_version_ratio_v30",
+        "adaptive_movement_abs_z__dns_non_reserved_dstport_ratio",
+        "adaptive_movement_abs_z__dns_non_reserved_srcport_ratio",
+        "adaptive_movement_abs_z__dns_protocol_tcp_ratio",
+        "adaptive_movement_abs_z__dns_rcode_nxdomain_ratio",
+        "adaptive_movement_abs_z__http_method_get_ratio",
+        "adaptive_movement_abs_z__http_method_head_ratio",
+        "adaptive_movement_abs_z__http_method_post_ratio",
+        "adaptive_movement_abs_z__http_method_put_ratio",
+        "adaptive_movement_abs_z__smtp_in_mean_hops",
+        "adaptive_movement_abs_z__smtp_subject_num_characters",
+        "adaptive_movement_abs_z__smtp_subject_num_words",
+        "adaptive_movement_abs_z__ssl_established_ratio",
+        "adaptive_movement_abs_z__ssl_version_ratio_v10",
+        "adaptive_movement_abs_z__ssl_version_ratio_v20",
+        "adaptive_movement_abs_z__ssl_version_ratio_v30",
+        "batch_window_age_hours"
+      ]
+    },
+    "model": "LR",
+    "columns": [
+      "current__dns_non_reserved_dstport_ratio",
+      "current__dns_non_reserved_srcport_ratio",
+      "current__dns_protocol_tcp_ratio",
+      "current__dns_rcode_nxdomain_ratio",
+      "current__http_method_get_ratio",
+      "current__http_method_head_ratio",
+      "current__http_method_post_ratio",
+      "current__http_method_put_ratio",
+      "current__smtp_in_mean_hops",
+      "current__smtp_subject_num_characters",
+      "current__smtp_subject_num_words",
+      "current__ssl_established_ratio",
+      "current__ssl_version_ratio_v10",
+      "current__ssl_version_ratio_v20",
+      "current__ssl_version_ratio_v30",
+      "history_mean__dns_non_reserved_dstport_ratio",
+      "history_mean__dns_non_reserved_srcport_ratio",
+      "history_mean__dns_protocol_tcp_ratio",
+      "history_mean__dns_rcode_nxdomain_ratio",
+      "history_mean__http_method_get_ratio",
+      "history_mean__http_method_head_ratio",
+      "history_mean__http_method_post_ratio",
+      "history_mean__http_method_put_ratio",
+      "history_mean__smtp_in_mean_hops",
+      "history_mean__smtp_subject_num_characters",
+      "history_mean__smtp_subject_num_words",
+      "history_mean__ssl_established_ratio",
+      "history_mean__ssl_version_ratio_v10",
+      "history_mean__ssl_version_ratio_v20",
+      "history_mean__ssl_version_ratio_v30",
+      "history__log1p_count",
+      "history__log1p_last_age_hours",
+      "history__span_hours",
+      "static_abs_z__dns_non_reserved_dstport_ratio",
+      "static_abs_z__dns_non_reserved_srcport_ratio",
+      "static_abs_z__dns_protocol_tcp_ratio",
+      "static_abs_z__dns_rcode_nxdomain_ratio",
+      "static_abs_z__http_method_get_ratio",
+      "static_abs_z__http_method_head_ratio",
+      "static_abs_z__http_method_post_ratio",
+      "static_abs_z__http_method_put_ratio",
+      "static_abs_z__smtp_in_mean_hops",
+      "static_abs_z__smtp_subject_num_characters",
+      "static_abs_z__smtp_subject_num_words",
+      "static_abs_z__ssl_established_ratio",
+      "static_abs_z__ssl_version_ratio_v10",
+      "static_abs_z__ssl_version_ratio_v20",
+      "static_abs_z__ssl_version_ratio_v30",
+      "adaptive_abs_z__dns_non_reserved_dstport_ratio",
+      "adaptive_abs_z__dns_non_reserved_srcport_ratio",
+      "adaptive_abs_z__dns_protocol_tcp_ratio",
+      "adaptive_abs_z__dns_rcode_nxdomain_ratio",
+      "adaptive_abs_z__http_method_get_ratio",
+      "adaptive_abs_z__http_method_head_ratio",
+      "adaptive_abs_z__http_method_post_ratio",
+      "adaptive_abs_z__http_method_put_ratio",
+      "adaptive_abs_z__smtp_in_mean_hops",
+      "adaptive_abs_z__smtp_subject_num_characters",
+      "adaptive_abs_z__smtp_subject_num_words",
+      "adaptive_abs_z__ssl_established_ratio",
+      "adaptive_abs_z__ssl_version_ratio_v10",
+      "adaptive_abs_z__ssl_version_ratio_v20",
+      "adaptive_abs_z__ssl_version_ratio_v30",
+      "adaptive_movement_abs_z__dns_non_reserved_dstport_ratio",
+      "adaptive_movement_abs_z__dns_non_reserved_srcport_ratio",
+      "adaptive_movement_abs_z__dns_protocol_tcp_ratio",
+      "adaptive_movement_abs_z__dns_rcode_nxdomain_ratio",
+      "adaptive_movement_abs_z__http_method_get_ratio",
+      "adaptive_movement_abs_z__http_method_head_ratio",
+      "adaptive_movement_abs_z__http_method_post_ratio",
+      "adaptive_movement_abs_z__http_method_put_ratio",
+      "adaptive_movement_abs_z__smtp_in_mean_hops",
+      "adaptive_movement_abs_z__smtp_subject_num_characters",
+      "adaptive_movement_abs_z__smtp_subject_num_words",
+      "adaptive_movement_abs_z__ssl_established_ratio",
+      "adaptive_movement_abs_z__ssl_version_ratio_v10",
+      "adaptive_movement_abs_z__ssl_version_ratio_v20",
+      "adaptive_movement_abs_z__ssl_version_ratio_v30",
+      "batch_window_age_hours"
+    ],
+    "candidate": null
+  },
+  "files": {
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\model.pkl": "ca16733ba60bfd83239383b540dd25bdab3fdd92d441eae49a7a208c239ae336",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\predictions.parquet": "f09de3595ac24d5c4198255a10d4968ce8603bb51e795d68c18c432d449fb6e9",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\calibration_predictions.parquet": "1948ca6dd5a8e937e6abc870c2fde118471afe75b342e46c57284c46b0efa6f2",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\partition_rows.parquet": "4ca83a30090c148ecb3123ea3a4cf4f6fdee27ab99e3747b54b0111302ef809e",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\fit.json": "b3b5a6b8db6020de3b7586e9bf0b38b19a39dfe36a59469569813ff73ef39f19",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_00.json": "a70799285855e73a2992223c2c5b6f4adbb6138df2bf5020c5b9a4cde1ed00a6",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_00.parquet": "4a54d5e2762353cbe4409bf830a31a743b2f1113999b8284f1ebc5aa6d04af90",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_00.sha256.json": "ce3f27f2959e38bae6e55ea40b91f438d5e51a34d0b4a851b9d02aac04f5db62",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_01.json": "699b922dad520fcc966f61636c741dabed6347c219c97fdea0d3287133534897",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_01.parquet": "9bb60e408c7a8396e9dbc400a8375fd2890fdd7fecc4017dbd6f67cb41804e2d",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_01.sha256.json": "2839862e8509055b3b9f5061a4f9d3dd65aa01e5c32baa02d3422589ddbaef1a",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_02.json": "cdc3065328ef6f876fa2d16fdd1562f28772a76027520353b343dd3708602c10",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_02.parquet": "df60177c78bc0d0eccf77503e2de62b2ac668d7dd5f79ad8c246af3570a14819",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_02.sha256.json": "1d738ceb848972a2c2c24fc1a1becc858c75a5f9ed76135c69caf6e0e4848fa1",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_03.json": "6028b0b27560e65bdbec569639b119cb25e9600454ca51a5df9c5766f7d10c9a",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_03.parquet": "cdff7d3ca84c8512b8df48a12a0fe357a1918afe7d26ea63b211961bc1ece580",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_03.sha256.json": "60c1e9ea67802d2c9804dd659104591439550978043751eacff317bf5884ab15",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_04.json": "5dbaa1b189f3cc03df3a6502cb3e2c9a706605a10bccab6476db05711de1c9dc",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_04.parquet": "731392227c759c0f197035fba61efe3bff4ad0d7fab545eb9b42c6611bbb6679",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_04.sha256.json": "a79214ccaeea85be17d7d5e357dd4b3f82b214d057ba5fb4f7dbce94ea2261b6",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_05.json": "279861f44f6470d133b8872991b17af71e6c7c636ab49bf833fce66d3af93921",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_05.parquet": "b86ee100b137ef37a90f1fc8b093330f4fbcc3b5496f23a89d1e5e58001c7818",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_05.sha256.json": "213b4ad3471a40b5018d91ccfd98fab3d3b84d533ac23a0e2c67f25b3dfd72a9",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_06.json": "749ea486394c1f83b44f8bae7f24de19f77daf66fc670b877f5035cc0a3256cf",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_06.parquet": "91bcaf0591bb57aec072ca55cfa8ce920d0778be20d41854ca11cf7cf5fa77f9",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_06.sha256.json": "a9176fb5cbbf6a385b7fcf02a9df352f869ccce15b40ac84229556c9f53f6244",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_07.json": "8e9dab4f7cc9ba43fec034a22cc85d23b422c3c24a5351ae134546c7b8ae1bf4",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_07.parquet": "bd3fdbed0c879b0d5515ec64a4bea9fcccf5af669063f2a6372b7c8527f5fdd6",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_07.sha256.json": "e02656e81a44ba6b2c2eeaa306fb68f8edee15187151e073be919df0536f1ada",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_08.json": "cd789b71e35aa3be1985a53ef8147d702592ae44799fc66b5df2797380ced3f1",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_08.parquet": "1d9cfcaa768351a2b251c4d97498b0ade7e0a46bf4bc144ceb22c8d914cd09db",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_08.sha256.json": "c0888239d9d66e3a343a2e71f2cb1bfdc38e5b53102e687ec76fe1c09c291706",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_09.json": "97e5f2f705b040119b9e68881a083672a10d1f300b5707af48597fc8c4d9c064",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_09.parquet": "23965f4d98c91f2c836f3747a0d31ccf4b92da2ad656c2b7e9d0f93f557738d1",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_09.sha256.json": "e942b8896605f312c5692129a7abe014377d9f4ce36653a8044902ad650dd184",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_10.json": "8e14d41084945f4babc7775638bf9ea1cd253dd036f16d8762133ba129ad86bf",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_10.parquet": "aeba23a04325292fb03fcba9f14fe2a5d82a9a94212f65eddbfab7e91666b502",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_10.sha256.json": "f27be8d0818f42dfca9a13908f31b81d3c86eea1b09a7860de2c27d013fd9267",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_11.json": "3bd3b7c7ffa1a3f0af8ced02fe75bf50fd6ac9c3852569380028742ae77e1450",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_11.parquet": "f1a42a8ac062b63c31251f5b734c35df6591a3db967a1ff9385ac4e131904aef",
+    "models\\main\\P2P_smartphone\\DEV0\\LR\\R3_ADAPTIVE\\trials\\trial_11.sha256.json": "783e171696bc807ae04e38f10a640062cb190b1ea923b48e33a9ced80506b28a"
+  },
+  "status": "COMPLETE"
+}

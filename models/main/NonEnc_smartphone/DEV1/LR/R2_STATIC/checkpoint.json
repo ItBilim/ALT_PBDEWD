@@ -1,0 +1,331 @@
+{
+  "binding": {
+    "base": {
+      "inputs": {
+        "protocol\\plan.json": "e3090a832ce8761c6273dca4d14218178824df440c7b08d294a412f59bdd4c35",
+        "data\\prepared\\NonEnc_smartphone.parquet": "7b2cca58c7bbb9daac86394b99ec4548bb70dc19649d62b2e00ebfd36a768328",
+        "data\\prepared\\NonEnc_smartphone_features.json": "466b6bd210472a9442860a40ccc1cc2878d9025875e38ba39e93d6f5b22ef6ec",
+        "experiment\\common.py": "52f1d83f57e0413dfe9d87dd8ed4c103caf272ed91c46bcd73a12fe6e6dd961c",
+        "experiment\\training.py": "0421863875393d00a3d5ba97b1ff6836a53f989e489c4ccdf201c2d2631d8dc3",
+        "experiment\\models.py": "48d9532f10deaa86a3bdfffe0d23b4b71252b09c843c0f54c7bb29b9cf61a618",
+        "experiment\\features.py": "e6dfa12d462a7f6e73050d232890c9a2dd9a3f43ca202a87334f8ba201f9883a",
+        "experiment\\splits.py": "5a92c877e55e256abbb364182e210c23afef95d141bd9064f299d468c67d2870",
+        "experiment\\factorial.py": "38de15889c5e9c39292e31dc8b2b7dd697d521e74d082a77fa2e93b4e96258e5",
+        "experiment\\prepare.py": "64e680541d29f6d3dc9ec0890584fd6327700f9ab5012e998eaaa6a8afab0aa0"
+      },
+      "train_row_sha256": "13636ff40272ab9563e03d6c8ccb5c2bcfdb795b2d46097263a381d4e24c015a",
+      "evaluation_identity_sha256": "7484c3cad5abf8de448e92dcfa1b91bebb72405eeb681b31246d28e2e349a329",
+      "partition": {
+        "selection_lower": "2023-09-27 00:00:00",
+        "calibration_lower": "2023-09-28 00:00:00",
+        "rule": "Label-free cumulative row mass60/80percent on observed training days with boundary purge; no outcome-based cutoff search",
+        "fitting_rows": 460,
+        "selection_rows": 324,
+        "calibration_rows": 128,
+        "refit_rows": 784,
+        "calibration_positive_users": 18,
+        "calibration_negative_users": 95,
+        "envelope_purging": true,
+        "calibration_not_in_estimator_refit": true,
+        "outer_evaluation_labels_used": false,
+        "parts": {
+          "inner_fit": {
+            "rows": 460,
+            "users": 253,
+            "positives": 62,
+            "positive_users": 39,
+            "negative_users": 214,
+            "row_sha256": "3ca25144b1a046ff96ad15c7968465a1b8b78075cd16092784c3f8352b09bf50",
+            "earliest_window_start": "2023-09-22 10:10:00",
+            "latest_available_at": "2023-09-26 22:00:00",
+            "earliest_decision": "2023-09-23 00:00:00",
+            "latest_decision": "2023-09-27 00:00:00"
+          },
+          "inner_select": {
+            "rows": 324,
+            "users": 324,
+            "positives": 56,
+            "positive_users": 56,
+            "negative_users": 268,
+            "row_sha256": "dcc0d76da1e264372e10fcdebb10ed17a76ed5f565efe1fd34163f22f18f7b94",
+            "earliest_window_start": "2023-09-27 06:20:00",
+            "latest_available_at": "2023-09-27 23:30:00",
+            "earliest_decision": "2023-09-28 00:00:00",
+            "latest_decision": "2023-09-28 00:00:00"
+          },
+          "calibration": {
+            "rows": 128,
+            "users": 113,
+            "positives": 21,
+            "positive_users": 18,
+            "negative_users": 95,
+            "row_sha256": "2d29b471325adae0c16f4397ae338942fadf0e922c65642c6dc4749ccabb20a4",
+            "earliest_window_start": "2023-09-28 00:00:00",
+            "latest_available_at": "2023-10-01 23:10:00",
+            "earliest_decision": "2023-09-29 00:00:00",
+            "latest_decision": "2023-10-02 00:00:00"
+          },
+          "refit": {
+            "rows": 784,
+            "users": 348,
+            "positives": 118,
+            "positive_users": 58,
+            "negative_users": 290,
+            "row_sha256": "7d1a69ad791f00dd7926de094a8edb6166d3205e942e74a612a3c3178aea7089",
+            "earliest_window_start": "2023-09-22 10:10:00",
+            "latest_available_at": "2023-09-27 23:30:00",
+            "earliest_decision": "2023-09-23 00:00:00",
+            "latest_decision": "2023-09-28 00:00:00"
+          }
+        }
+      },
+      "model_config": {
+        "seed": 20261023,
+        "n_jobs": 2,
+        "candidate_grids": {
+          "trials_per_model_representation_fold": 12,
+          "objective": "Inner selection AP",
+          "ties": "Lowest fixed grid index",
+          "LR": [
+            {
+              "C": 0.0001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.03
+            },
+            {
+              "C": 0.1
+            },
+            {
+              "C": 0.3
+            },
+            {
+              "C": 1
+            },
+            {
+              "C": 3
+            },
+            {
+              "C": 10
+            },
+            {
+              "C": 30
+            },
+            {
+              "C": 100
+            },
+            {
+              "C": 1000
+            }
+          ],
+          "HGB": [
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 10
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 10
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 10
+            }
+          ]
+        },
+        "calibration_C": 1,
+        "probability_clip": 1e-06
+      },
+      "columns": [
+        "current__dns_non_reserved_dstport_ratio",
+        "current__dns_non_reserved_srcport_ratio",
+        "current__dns_protocol_tcp_ratio",
+        "current__dns_rcode_nxdomain_ratio",
+        "current__http_method_get_ratio",
+        "current__http_method_head_ratio",
+        "current__http_method_post_ratio",
+        "current__http_method_put_ratio",
+        "current__smtp_in_mean_hops",
+        "current__smtp_subject_num_characters",
+        "current__smtp_subject_num_words",
+        "current__ssl_established_ratio",
+        "current__ssl_version_ratio_v10",
+        "current__ssl_version_ratio_v20",
+        "current__ssl_version_ratio_v30",
+        "history_mean__dns_non_reserved_dstport_ratio",
+        "history_mean__dns_non_reserved_srcport_ratio",
+        "history_mean__dns_protocol_tcp_ratio",
+        "history_mean__dns_rcode_nxdomain_ratio",
+        "history_mean__http_method_get_ratio",
+        "history_mean__http_method_head_ratio",
+        "history_mean__http_method_post_ratio",
+        "history_mean__http_method_put_ratio",
+        "history_mean__smtp_in_mean_hops",
+        "history_mean__smtp_subject_num_characters",
+        "history_mean__smtp_subject_num_words",
+        "history_mean__ssl_established_ratio",
+        "history_mean__ssl_version_ratio_v10",
+        "history_mean__ssl_version_ratio_v20",
+        "history_mean__ssl_version_ratio_v30",
+        "history__log1p_count",
+        "history__log1p_last_age_hours",
+        "history__span_hours",
+        "static_abs_z__dns_non_reserved_dstport_ratio",
+        "static_abs_z__dns_non_reserved_srcport_ratio",
+        "static_abs_z__dns_protocol_tcp_ratio",
+        "static_abs_z__dns_rcode_nxdomain_ratio",
+        "static_abs_z__http_method_get_ratio",
+        "static_abs_z__http_method_head_ratio",
+        "static_abs_z__http_method_post_ratio",
+        "static_abs_z__http_method_put_ratio",
+        "static_abs_z__smtp_in_mean_hops",
+        "static_abs_z__smtp_subject_num_characters",
+        "static_abs_z__smtp_subject_num_words",
+        "static_abs_z__ssl_established_ratio",
+        "static_abs_z__ssl_version_ratio_v10",
+        "static_abs_z__ssl_version_ratio_v20",
+        "static_abs_z__ssl_version_ratio_v30",
+        "batch_window_age_hours"
+      ]
+    },
+    "model": "LR",
+    "columns": [
+      "current__dns_non_reserved_dstport_ratio",
+      "current__dns_non_reserved_srcport_ratio",
+      "current__dns_protocol_tcp_ratio",
+      "current__dns_rcode_nxdomain_ratio",
+      "current__http_method_get_ratio",
+      "current__http_method_head_ratio",
+      "current__http_method_post_ratio",
+      "current__http_method_put_ratio",
+      "current__smtp_in_mean_hops",
+      "current__smtp_subject_num_characters",
+      "current__smtp_subject_num_words",
+      "current__ssl_established_ratio",
+      "current__ssl_version_ratio_v10",
+      "current__ssl_version_ratio_v20",
+      "current__ssl_version_ratio_v30",
+      "history_mean__dns_non_reserved_dstport_ratio",
+      "history_mean__dns_non_reserved_srcport_ratio",
+      "history_mean__dns_protocol_tcp_ratio",
+      "history_mean__dns_rcode_nxdomain_ratio",
+      "history_mean__http_method_get_ratio",
+      "history_mean__http_method_head_ratio",
+      "history_mean__http_method_post_ratio",
+      "history_mean__http_method_put_ratio",
+      "history_mean__smtp_in_mean_hops",
+      "history_mean__smtp_subject_num_characters",
+      "history_mean__smtp_subject_num_words",
+      "history_mean__ssl_established_ratio",
+      "history_mean__ssl_version_ratio_v10",
+      "history_mean__ssl_version_ratio_v20",
+      "history_mean__ssl_version_ratio_v30",
+      "history__log1p_count",
+      "history__log1p_last_age_hours",
+      "history__span_hours",
+      "static_abs_z__dns_non_reserved_dstport_ratio",
+      "static_abs_z__dns_non_reserved_srcport_ratio",
+      "static_abs_z__dns_protocol_tcp_ratio",
+      "static_abs_z__dns_rcode_nxdomain_ratio",
+      "static_abs_z__http_method_get_ratio",
+      "static_abs_z__http_method_head_ratio",
+      "static_abs_z__http_method_post_ratio",
+      "static_abs_z__http_method_put_ratio",
+      "static_abs_z__smtp_in_mean_hops",
+      "static_abs_z__smtp_subject_num_characters",
+      "static_abs_z__smtp_subject_num_words",
+      "static_abs_z__ssl_established_ratio",
+      "static_abs_z__ssl_version_ratio_v10",
+      "static_abs_z__ssl_version_ratio_v20",
+      "static_abs_z__ssl_version_ratio_v30",
+      "batch_window_age_hours"
+    ],
+    "candidate": null
+  },
+  "files": {
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\model.pkl": "429da0d78f51e1a4e5306b30175c07c8381b27f0bc9891dec2205dd1cbea1042",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\predictions.parquet": "96bb7fb9befa2a4da671923c7e1fde4978b351436b0b7359e9b8d516245a77a6",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\calibration_predictions.parquet": "b33c6d24f06a2125bf26ed96024bf991e2ba86598785298252470951f5f71c0d",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\partition_rows.parquet": "50650a9611fcf517330c64839611f7582a9746c36328e719b93c976500eb4112",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\fit.json": "895eb323a7017e9971814233c811f325ffd344dcc395fe19e8682c041c4089bd",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_00.json": "11700bb0d58e39014b9f721eab226f59c65db36cfb529b922d166cc8e61f3be6",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_00.parquet": "58c0b53252fb872e23056d974f3b6467377f8d4cf32be2676b4d37540d64c6a9",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_00.sha256.json": "5b83ea874dd86fb0205b2fcd19647663c8e7b3c108672065ae1055fb53f838b9",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_01.json": "41d374d3aac322ff442ff31952070789d8042745bdbe84cfaf6ad9f15e8523fa",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_01.parquet": "409836241e66a573fae61954e0511338059649b8e0961fdcddf95d73268c8b75",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_01.sha256.json": "227718a36e5e39fca17434b693278b997b4a1eff78b979828524c9adacb22da3",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_02.json": "dff6f0a8b5e635eea7574b29fffc264e36767914dad530322a09460d97280871",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_02.parquet": "0cfb40dcb82ad2e1da8f29ea7433b9fa672556367803950d6af87c898e6967de",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_02.sha256.json": "0fdb9170e95ad427aecba78bfc649e4ec717a9386d4eee29c207ab461c924a19",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_03.json": "7c174a5f5a3f1ce0af663e0156dca157d1386592808292245946ff1381b7c170",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_03.parquet": "ec0c1fec68cfbf6ccfd30a5ac1e80cb48d7da4b00c5105fdd1e4bab9edc6c268",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_03.sha256.json": "02b2ee8611efef6137e214398d33c25fb8914c13e97c49d45e1d5dc8b71e6c85",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_04.json": "2d3f4d81345734849eb0b162b018bd927f54a69fbd0fc9c17a20c40b2808c3dc",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_04.parquet": "2199cab39d2e7d03abd0e05c90febf359aba26060ee38b89022c78971622c94f",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_04.sha256.json": "8380fb418e1423e4a0fa525ab56be8639c433df5020898310657ef139e6dc17b",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_05.json": "6d0a94ad64fb1906d2a158e249b413c8b5dc65d0aef72ecd4f1c2a7b30dfa43c",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_05.parquet": "45abe44bd4138d4330606f564e25c6d07a941489164894f41b4434cb68aa6369",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_05.sha256.json": "2cf4d0859242ed71ae17edf132a92be570f551c4da4fab7018a26395794e440f",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_06.json": "38eeecc37affd7e986e4f0685d2cce45998ed2c9adaa570103051e89239f476d",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_06.parquet": "0b9a6424b2da2ed99145b4b4b8b73392aa9ee89b97c8215ec67a482a7846ce20",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_06.sha256.json": "84a41f06623e497902c7fd148f9f96cf422e6e0f776cd5cac3357f49cdc7bd04",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_07.json": "31b67eaf637816b9f3eaf879d31ed240325043d8466b6b911f21cb89d7335d40",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_07.parquet": "643e64f6bd8d046feaa04c5494ed71e6bf24c5b2ca0e90c2ba9121d2d5e80a6a",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_07.sha256.json": "d7f5a6109ef3361e45e7389f6e393506f15702797c0a616d0643d0dc1407103a",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_08.json": "e777d873c14347a61e4942aea29c1ef4940c08342a22eec8d0041214e63fe5c3",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_08.parquet": "06af84963d32772326513bc97750abe92d2d50ed4bc6eeb8db7a54a686216d73",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_08.sha256.json": "2e2c9bceda366c40c6a47e71b6135e853c7a785e9c83d7a8e03ce5e2d9b2283d",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_09.json": "a52e7848a20ea6a3f80863a857461f462f8b16b585399695491c06740677e633",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_09.parquet": "65e6bbc52704ee82e03f0b7b4037c57d3018bab29e1c9ba2a930f3d531e3e6e7",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_09.sha256.json": "4195b990a7eb8c36b020e01f42142b7ccfd07c5fe613a6ccc98975cffc5e46b5",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_10.json": "94ac912e656180b202caca981794b244f507425f14763d8dd29355671d23cc11",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_10.parquet": "961ff963c19015ba77362fa71a337c22bdad7f0e3c55357d0d8246dac6d1c568",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_10.sha256.json": "d22021f3d20451787b2a5cdb8f6502d57ad28a4c6c0ec77ec2e38d5db2a86bb5",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_11.json": "0a9f445bac98bf35ba33aa2be79e90d724b2faab33eeb657e8091c1dc5a9b8c4",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_11.parquet": "193d1a0ab136cfb8e5c23898869e8245b97a63a4ed02224fc9cf8d064cdbcfe4",
+    "models\\main\\NonEnc_smartphone\\DEV1\\LR\\R2_STATIC\\trials\\trial_11.sha256.json": "2b6bbae85c8efab6770e2cb3194f6b101f7e19c44fdf9d1e685a02ea12f1c6cb"
+  },
+  "status": "COMPLETE"
+}

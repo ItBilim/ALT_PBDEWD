@@ -1,0 +1,10 @@
+{
+  "status": "PASS_EXACT_REBUILD",
+  "dataset": "P2P_smartphone",
+  "raw_rows": 207956,
+  "retained_rows": 200559,
+  "daily_rows": 5193,
+  "prepared_sha256": "d9e14c0d9655f8d02e28558a9e55e992fa22a18356d5ac34fdeee6d9cb258aa5",
+  "labels_used_in_predictor_construction": false,
+  "diagnostic_past_label_excluded_from_predictors": true
+}

@@ -1,0 +1,16 @@
+{
+  "protocol_id": "MEREI_PROFILE_ADAPTATION_DRIFT_RANKING_V1",
+  "completed_fits": 400,
+  "planned_fits": 400,
+  "primary_comparisons": 32,
+  "primary_uncertainty_estimable": 32,
+  "positive_familywise_interval_count": 0,
+  "negative_familywise_interval_count": 0,
+  "fit_preprocessing_train_only": true,
+  "own_history_past_only": true,
+  "raw_changed": false,
+  "onset_claim": false,
+  "external_validation": false,
+  "conditional_feature_semantics": true,
+  "all_predictions_immediate_replay_verified": true
+}

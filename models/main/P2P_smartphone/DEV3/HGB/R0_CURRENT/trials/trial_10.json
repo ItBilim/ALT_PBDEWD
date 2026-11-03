@@ -1,0 +1,334 @@
+{
+  "binding": {
+    "base": {
+      "inputs": {
+        "protocol\\plan.json": "e3090a832ce8761c6273dca4d14218178824df440c7b08d294a412f59bdd4c35",
+        "data\\prepared\\P2P_smartphone.parquet": "d9e14c0d9655f8d02e28558a9e55e992fa22a18356d5ac34fdeee6d9cb258aa5",
+        "data\\prepared\\P2P_smartphone_features.json": "797bc07dd1b3bffcd240158dab355edaf97f81500aa4388ffb6cd892e7570e40",
+        "experiment\\common.py": "52f1d83f57e0413dfe9d87dd8ed4c103caf272ed91c46bcd73a12fe6e6dd961c",
+        "experiment\\training.py": "0421863875393d00a3d5ba97b1ff6836a53f989e489c4ccdf201c2d2631d8dc3",
+        "experiment\\models.py": "48d9532f10deaa86a3bdfffe0d23b4b71252b09c843c0f54c7bb29b9cf61a618",
+        "experiment\\features.py": "e6dfa12d462a7f6e73050d232890c9a2dd9a3f43ca202a87334f8ba201f9883a",
+        "experiment\\splits.py": "5a92c877e55e256abbb364182e210c23afef95d141bd9064f299d468c67d2870",
+        "experiment\\factorial.py": "38de15889c5e9c39292e31dc8b2b7dd697d521e74d082a77fa2e93b4e96258e5",
+        "experiment\\prepare.py": "64e680541d29f6d3dc9ec0890584fd6327700f9ab5012e998eaaa6a8afab0aa0"
+      },
+      "train_row_sha256": "b5b9e23c773769a1caa62679f9cecc7024a25d012db80ed6bfbb5d3ed65569bf",
+      "evaluation_identity_sha256": "35e7d5b7871b02814c17e92de9ee543c76626e91de202d0933a1260ccd241740",
+      "partition": {
+        "selection_lower": "2023-10-05 00:00:00",
+        "calibration_lower": "2023-10-06 00:00:00",
+        "rule": "Label-free cumulative row mass60/80percent on observed training days with boundary purge; no outcome-based cutoff search",
+        "fitting_rows": 1339,
+        "selection_rows": 363,
+        "calibration_rows": 392,
+        "refit_rows": 1702,
+        "calibration_positive_users": 45,
+        "calibration_negative_users": 285,
+        "envelope_purging": true,
+        "calibration_not_in_estimator_refit": true,
+        "outer_evaluation_labels_used": false,
+        "parts": {
+          "inner_fit": {
+            "rows": 1339,
+            "users": 388,
+            "positives": 221,
+            "positive_users": 54,
+            "negative_users": 334,
+            "row_sha256": "2163cdc60d3baa1f3a8d0c78898e3acd726c0c891389e7ab4c55a4a9603deff0",
+            "earliest_window_start": "2023-09-22 10:10:00",
+            "latest_available_at": "2023-10-04 23:50:00",
+            "earliest_decision": "2023-09-23 00:00:00",
+            "latest_decision": "2023-10-05 00:00:00"
+          },
+          "inner_select": {
+            "rows": 363,
+            "users": 363,
+            "positives": 49,
+            "positive_users": 49,
+            "negative_users": 314,
+            "row_sha256": "b88193c91f5aff4f8ea75bab551c05f48e2348df968733e518d9057ef2efbd38",
+            "earliest_window_start": "2023-10-05 05:00:00",
+            "latest_available_at": "2023-10-05 22:30:00",
+            "earliest_decision": "2023-10-06 00:00:00",
+            "latest_decision": "2023-10-06 00:00:00"
+          },
+          "calibration": {
+            "rows": 392,
+            "users": 330,
+            "positives": 56,
+            "positive_users": 45,
+            "negative_users": 285,
+            "row_sha256": "e9769224890394b6713c685ff5d9780821f0062e2759c5d735ef21f3bb47b8ec",
+            "earliest_window_start": "2023-10-06 00:20:00",
+            "latest_available_at": "2023-10-08 23:50:00",
+            "earliest_decision": "2023-10-07 00:00:00",
+            "latest_decision": "2023-10-09 00:00:00"
+          },
+          "refit": {
+            "rows": 1702,
+            "users": 421,
+            "positives": 270,
+            "positive_users": 59,
+            "negative_users": 362,
+            "row_sha256": "eba8f548587abb75cd1acaeb36a3d0c980c2dedc16f664c08c1c85153627486b",
+            "earliest_window_start": "2023-09-22 10:10:00",
+            "latest_available_at": "2023-10-05 22:30:00",
+            "earliest_decision": "2023-09-23 00:00:00",
+            "latest_decision": "2023-10-06 00:00:00"
+          }
+        }
+      },
+      "model_config": {
+        "seed": 20261023,
+        "n_jobs": 2,
+        "candidate_grids": {
+          "trials_per_model_representation_fold": 12,
+          "objective": "Inner selection AP",
+          "ties": "Lowest fixed grid index",
+          "LR": [
+            {
+              "C": 0.0001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.03
+            },
+            {
+              "C": 0.1
+            },
+            {
+              "C": 0.3
+            },
+            {
+              "C": 1
+            },
+            {
+              "C": 3
+            },
+            {
+              "C": 10
+            },
+            {
+              "C": 30
+            },
+            {
+              "C": 100
+            },
+            {
+              "C": 1000
+            }
+          ],
+          "HGB": [
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 10
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 10
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 10
+            }
+          ]
+        },
+        "calibration_C": 1,
+        "probability_clip": 1e-06
+      },
+      "columns": [
+        "current__dns_non_reserved_dstport_ratio",
+        "current__dns_non_reserved_srcport_ratio",
+        "current__dns_protocol_tcp_ratio",
+        "current__dns_rcode_nxdomain_ratio",
+        "current__http_method_get_ratio",
+        "current__http_method_head_ratio",
+        "current__http_method_post_ratio",
+        "current__http_method_put_ratio",
+        "current__smtp_in_mean_hops",
+        "current__smtp_subject_num_characters",
+        "current__smtp_subject_num_words",
+        "current__ssl_established_ratio",
+        "current__ssl_version_ratio_v10",
+        "current__ssl_version_ratio_v20",
+        "current__ssl_version_ratio_v30"
+      ]
+    },
+    "model": "HGB",
+    "columns": [
+      "current__dns_non_reserved_dstport_ratio",
+      "current__dns_non_reserved_srcport_ratio",
+      "current__dns_protocol_tcp_ratio",
+      "current__dns_rcode_nxdomain_ratio",
+      "current__http_method_get_ratio",
+      "current__http_method_head_ratio",
+      "current__http_method_post_ratio",
+      "current__http_method_put_ratio",
+      "current__smtp_in_mean_hops",
+      "current__smtp_subject_num_characters",
+      "current__smtp_subject_num_words",
+      "current__ssl_established_ratio",
+      "current__ssl_version_ratio_v10",
+      "current__ssl_version_ratio_v20",
+      "current__ssl_version_ratio_v30"
+    ],
+    "candidate": {
+      "max_leaf_nodes": 31,
+      "l2_regularization": 1
+    }
+  },
+  "trial_index": 10,
+  "parameters": {
+    "max_leaf_nodes": 31,
+    "l2_regularization": 1
+  },
+  "selection_AP": 0.14630082460534238,
+  "fitting_seconds": 1.2795627999585122,
+  "fit_details": {
+    "model_name": "HGB",
+    "estimator_class": "sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingClassifier",
+    "model_source_sha256": "48d9532f10deaa86a3bdfffe0d23b4b71252b09c843c0f54c7bb29b9cf61a618",
+    "parameters": {
+      "max_iter": 120,
+      "max_leaf_nodes": 31,
+      "l2_regularization": 1,
+      "early_stopping": false,
+      "random_state": 20261023
+    },
+    "seed": 20261023,
+    "thread_limit": 2,
+    "training_rows": 1339,
+    "fitting_rows": 1339,
+    "preprocessing_fit_rows": 1339,
+    "evaluation_rows": 363,
+    "class_counts": {
+      "0": 1118,
+      "1": 221
+    },
+    "fit_class_counts": {
+      "0": 1118,
+      "1": 221
+    },
+    "input_features": [
+      "current__dns_non_reserved_dstport_ratio",
+      "current__dns_non_reserved_srcport_ratio",
+      "current__dns_protocol_tcp_ratio",
+      "current__dns_rcode_nxdomain_ratio",
+      "current__http_method_get_ratio",
+      "current__http_method_head_ratio",
+      "current__http_method_post_ratio",
+      "current__http_method_put_ratio",
+      "current__smtp_in_mean_hops",
+      "current__smtp_subject_num_characters",
+      "current__smtp_subject_num_words",
+      "current__ssl_established_ratio",
+      "current__ssl_version_ratio_v10",
+      "current__ssl_version_ratio_v20",
+      "current__ssl_version_ratio_v30"
+    ],
+    "retained_features": [
+      "current__dns_non_reserved_dstport_ratio",
+      "current__dns_non_reserved_srcport_ratio",
+      "current__dns_rcode_nxdomain_ratio",
+      "current__http_method_get_ratio",
+      "current__http_method_post_ratio",
+      "current__http_method_put_ratio",
+      "current__smtp_in_mean_hops",
+      "current__smtp_subject_num_characters",
+      "current__smtp_subject_num_words",
+      "current__ssl_established_ratio",
+      "current__ssl_version_ratio_v10"
+    ],
+    "dropped_features": [
+      {
+        "feature": "current__dns_protocol_tcp_ratio",
+        "reason": "constant_in_training"
+      },
+      {
+        "feature": "current__http_method_head_ratio",
+        "reason": "constant_in_training"
+      },
+      {
+        "feature": "current__ssl_version_ratio_v20",
+        "reason": "constant_in_training"
+      },
+      {
+        "feature": "current__ssl_version_ratio_v30",
+        "reason": "constant_in_training"
+      }
+    ],
+    "training_medians": {
+      "current__dns_non_reserved_dstport_ratio": 0.0,
+      "current__dns_non_reserved_srcport_ratio": 0.0,
+      "current__dns_rcode_nxdomain_ratio": 0.0,
+      "current__http_method_get_ratio": 0.6666666865348816,
+      "current__http_method_post_ratio": 0.0,
+      "current__http_method_put_ratio": 0.0,
+      "current__smtp_in_mean_hops": 0.0,
+      "current__smtp_subject_num_characters": 0.0,
+      "current__smtp_subject_num_words": 0.0,
+      "current__ssl_established_ratio": 1.0,
+      "current__ssl_version_ratio_v10": 1.0
+    },
+    "preprocessing": "train-only finite median imputation; train-only constant/all-missing filtering",
+    "scaling": "none",
+    "weighting": "inverse-training-class-frequency balanced",
+    "score_type": "uncalibrated_balanced_class_probability",
+    "score_higher_is_riskier": true,
+    "probability_calibrated": false,
+    "evaluation_labels_used": false,
+    "library_versions": {
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1"
+    }
+  },
+  "warnings": [],
+  "objective": "INNER_SELECTION_AP",
+  "outer_labels_used": false,
+  "trial_estimator_retained": false,
+  "trial_estimator_disposition": "DISCARDED_AFTER_SELECTION_SCORE; selected configuration refitted independently"
+}

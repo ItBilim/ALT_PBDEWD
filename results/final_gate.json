@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "date": "2026-11-02",
+  "manifest_sha256": "3c82243dc685c3f3ace827125680713367ff12fdab250bdc55269ac1805d839c",
+  "saved_models": 520,
+  "hpo_trials": 2400,
+  "selected_estimators": 520,
+  "calibrators": 520,
+  "fresh_estimator_fits": 2920,
+  "replayed": true,
+  "tests": 27,
+  "raw_feature_rebuild": "PASS_EXACT_FOUR_DATASETS",
+  "all_four_research_questions_evaluated": true,
+  "hypothesis_supported": false,
+  "onset_measured": false,
+  "external_validation": false,
+  "retrospective": true
+}

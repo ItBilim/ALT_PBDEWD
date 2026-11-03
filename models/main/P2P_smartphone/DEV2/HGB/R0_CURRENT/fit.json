@@ -1,0 +1,222 @@
+{
+  "model": "HGB",
+  "scope": "RETROSPECTIVE_FOUR_RQ_REPRODUCTION",
+  "trial_count": 12,
+  "selected_trial_index": 9,
+  "selected_parameters": {
+    "max_leaf_nodes": 31,
+    "l2_regularization": 0.1
+  },
+  "selection_AP": 0.6385179018555467,
+  "tie_break": "FIRST_FROZEN_CANDIDATE_INDEX",
+  "partition": {
+    "selection_lower": "2023-09-29 00:00:00",
+    "calibration_lower": "2023-10-04 00:00:00",
+    "rule": "Label-free cumulative row mass60/80percent on observed training days with boundary purge; no outcome-based cutoff search",
+    "fitting_rows": 799,
+    "selection_rows": 178,
+    "calibration_rows": 358,
+    "refit_rows": 981,
+    "calibration_positive_users": 50,
+    "calibration_negative_users": 308,
+    "envelope_purging": true,
+    "calibration_not_in_estimator_refit": true,
+    "outer_evaluation_labels_used": false,
+    "parts": {
+      "inner_fit": {
+        "rows": 799,
+        "users": 332,
+        "positives": 72,
+        "positive_users": 38,
+        "negative_users": 294,
+        "row_sha256": "baee587188f73d4b6498c96d28aa0bcdc547b423b843be0dbcce688932855753",
+        "earliest_window_start": "2023-09-22 10:10:00",
+        "latest_available_at": "2023-09-28 23:20:00",
+        "earliest_decision": "2023-09-23 00:00:00",
+        "latest_decision": "2023-09-29 00:00:00"
+      },
+      "inner_select": {
+        "rows": 178,
+        "users": 105,
+        "positives": 99,
+        "positive_users": 48,
+        "negative_users": 57,
+        "row_sha256": "fd5b4842ee1c59318925d520b6e5d067a7af62785bf29618e6f42afcf12d771f",
+        "earliest_window_start": "2023-09-29 00:30:00",
+        "latest_available_at": "2023-10-03 22:20:00",
+        "earliest_decision": "2023-09-30 00:00:00",
+        "latest_decision": "2023-10-04 00:00:00"
+      },
+      "calibration": {
+        "rows": 358,
+        "users": 358,
+        "positives": 50,
+        "positive_users": 50,
+        "negative_users": 308,
+        "row_sha256": "69f2a0a26abceb21d607b93bc155aa0c62ee583ad475e8b02691c6bddbdae3c4",
+        "earliest_window_start": "2023-10-04 04:20:00",
+        "latest_available_at": "2023-10-04 23:50:00",
+        "earliest_decision": "2023-10-05 00:00:00",
+        "latest_decision": "2023-10-05 00:00:00"
+      },
+      "refit": {
+        "rows": 981,
+        "users": 348,
+        "positives": 171,
+        "positive_users": 48,
+        "negative_users": 300,
+        "row_sha256": "8597091081de2e1cc38ae79283c2489ed3ec0aa2fa23af5519b915cb874dc03b",
+        "earliest_window_start": "2023-09-22 10:10:00",
+        "latest_available_at": "2023-10-03 22:20:00",
+        "earliest_decision": "2023-09-23 00:00:00",
+        "latest_decision": "2023-10-04 00:00:00"
+      }
+    }
+  },
+  "fit_details": {
+    "model_name": "HGB",
+    "estimator_class": "sklearn.ensemble._hist_gradient_boosting.gradient_boosting.HistGradientBoostingClassifier",
+    "model_source_sha256": "48d9532f10deaa86a3bdfffe0d23b4b71252b09c843c0f54c7bb29b9cf61a618",
+    "parameters": {
+      "max_iter": 120,
+      "max_leaf_nodes": 31,
+      "l2_regularization": 0.1,
+      "early_stopping": false,
+      "random_state": 20261023
+    },
+    "seed": 20261023,
+    "thread_limit": 2,
+    "training_rows": 981,
+    "fitting_rows": 981,
+    "preprocessing_fit_rows": 981,
+    "evaluation_rows": 358,
+    "class_counts": {
+      "0": 810,
+      "1": 171
+    },
+    "fit_class_counts": {
+      "0": 810,
+      "1": 171
+    },
+    "input_features": [
+      "current__dns_non_reserved_dstport_ratio",
+      "current__dns_non_reserved_srcport_ratio",
+      "current__dns_protocol_tcp_ratio",
+      "current__dns_rcode_nxdomain_ratio",
+      "current__http_method_get_ratio",
+      "current__http_method_head_ratio",
+      "current__http_method_post_ratio",
+      "current__http_method_put_ratio",
+      "current__smtp_in_mean_hops",
+      "current__smtp_subject_num_characters",
+      "current__smtp_subject_num_words",
+      "current__ssl_established_ratio",
+      "current__ssl_version_ratio_v10",
+      "current__ssl_version_ratio_v20",
+      "current__ssl_version_ratio_v30"
+    ],
+    "retained_features": [
+      "current__dns_non_reserved_dstport_ratio",
+      "current__dns_non_reserved_srcport_ratio",
+      "current__dns_rcode_nxdomain_ratio",
+      "current__http_method_get_ratio",
+      "current__http_method_post_ratio",
+      "current__http_method_put_ratio",
+      "current__smtp_in_mean_hops",
+      "current__smtp_subject_num_characters",
+      "current__smtp_subject_num_words",
+      "current__ssl_established_ratio",
+      "current__ssl_version_ratio_v10"
+    ],
+    "dropped_features": [
+      {
+        "feature": "current__dns_protocol_tcp_ratio",
+        "reason": "constant_in_training"
+      },
+      {
+        "feature": "current__http_method_head_ratio",
+        "reason": "constant_in_training"
+      },
+      {
+        "feature": "current__ssl_version_ratio_v20",
+        "reason": "constant_in_training"
+      },
+      {
+        "feature": "current__ssl_version_ratio_v30",
+        "reason": "constant_in_training"
+      }
+    ],
+    "training_medians": {
+      "current__dns_non_reserved_dstport_ratio": 0.0,
+      "current__dns_non_reserved_srcport_ratio": 0.0,
+      "current__dns_rcode_nxdomain_ratio": 0.0,
+      "current__http_method_get_ratio": 0.6666666865348816,
+      "current__http_method_post_ratio": 0.0,
+      "current__http_method_put_ratio": 0.0,
+      "current__smtp_in_mean_hops": 0.0,
+      "current__smtp_subject_num_characters": 0.0,
+      "current__smtp_subject_num_words": 0.0,
+      "current__ssl_established_ratio": 1.0,
+      "current__ssl_version_ratio_v10": 1.0
+    },
+    "preprocessing": "train-only finite median imputation; train-only constant/all-missing filtering",
+    "scaling": "none",
+    "weighting": "inverse-training-class-frequency balanced",
+    "score_type": "uncalibrated_balanced_class_probability",
+    "score_higher_is_riskier": true,
+    "probability_calibrated": false,
+    "evaluation_labels_used": false,
+    "library_versions": {
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "scikit-learn": "1.9.1",
+      "scipy": "1.18.1"
+    }
+  },
+  "calibration": {
+    "method": "UNWEIGHTED_HELD_OUT_PLATT_ON_LOGIT_RAW_PROBABILITY",
+    "C": 1.0,
+    "rows": 358,
+    "positive_rows": 50,
+    "negative_rows": 308,
+    "class_weight": null,
+    "probability_clip": 1e-06,
+    "seed": 20261023,
+    "slope": 0.13687038758957476,
+    "intercept": -1.6823379893668562,
+    "outer_eval_labels_used": false,
+    "guarantee": "Calibration estimated on a finite held-out temporal block; not a guarantee of future calibration"
+  },
+  "columns": [
+    "current__dns_non_reserved_dstport_ratio",
+    "current__dns_non_reserved_srcport_ratio",
+    "current__dns_protocol_tcp_ratio",
+    "current__dns_rcode_nxdomain_ratio",
+    "current__http_method_get_ratio",
+    "current__http_method_head_ratio",
+    "current__http_method_post_ratio",
+    "current__http_method_put_ratio",
+    "current__smtp_in_mean_hops",
+    "current__smtp_subject_num_characters",
+    "current__smtp_subject_num_words",
+    "current__ssl_established_ratio",
+    "current__ssl_version_ratio_v10",
+    "current__ssl_version_ratio_v20",
+    "current__ssl_version_ratio_v30"
+  ],
+  "outer_eval_rows": 886,
+  "estimator_refit_rows": 981,
+  "calibration_rows": 358,
+  "outer_labels_used_for_selection_or_fitting": false,
+  "calibration_labels_in_estimator_refit": false,
+  "immediate_pickle_replay_verified": true,
+  "fit_seconds": 0.8726308000041172,
+  "model_fits": {
+    "hpo": 12,
+    "selected_estimator": 1,
+    "platt": 1
+  },
+  "warnings": [
+    "'penalty' was deprecated in version 1.8 and will be removed in 1.10. To avoid this warning, leave 'penalty' set to its default value and use 'l1_ratio' or 'C' instead. Use l1_ratio=0 instead of penalty='l2', l1_ratio=1 instead of penalty='l1', l1_ratio set to a float between 0 and 1 instead of penalty='elasticnet', and C=np.inf instead of penalty=None."
+  ]
+}

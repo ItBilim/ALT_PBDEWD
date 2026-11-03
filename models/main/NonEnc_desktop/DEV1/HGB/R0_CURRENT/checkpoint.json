@@ -1,0 +1,263 @@
+{
+  "binding": {
+    "base": {
+      "inputs": {
+        "protocol\\plan.json": "e3090a832ce8761c6273dca4d14218178824df440c7b08d294a412f59bdd4c35",
+        "data\\prepared\\NonEnc_desktop.parquet": "b735f49c7bae0504e306ed50ee26e9382f76f7211807124326ac8a084f805190",
+        "data\\prepared\\NonEnc_desktop_features.json": "0e584e0f98e9e6a1251c3f187bb7dddd5daf19f9ea1644a2494ebe03bf3df38d",
+        "experiment\\common.py": "52f1d83f57e0413dfe9d87dd8ed4c103caf272ed91c46bcd73a12fe6e6dd961c",
+        "experiment\\training.py": "0421863875393d00a3d5ba97b1ff6836a53f989e489c4ccdf201c2d2631d8dc3",
+        "experiment\\models.py": "48d9532f10deaa86a3bdfffe0d23b4b71252b09c843c0f54c7bb29b9cf61a618",
+        "experiment\\features.py": "e6dfa12d462a7f6e73050d232890c9a2dd9a3f43ca202a87334f8ba201f9883a",
+        "experiment\\splits.py": "5a92c877e55e256abbb364182e210c23afef95d141bd9064f299d468c67d2870",
+        "experiment\\factorial.py": "38de15889c5e9c39292e31dc8b2b7dd697d521e74d082a77fa2e93b4e96258e5",
+        "experiment\\prepare.py": "64e680541d29f6d3dc9ec0890584fd6327700f9ab5012e998eaaa6a8afab0aa0"
+      },
+      "train_row_sha256": "dc40db488a6af0b949a55cce9aa6725cc8b03f4b840445f7ec7584526fb7f640",
+      "evaluation_identity_sha256": "3fa21c01e1fca3cc689a02b47297ac1428e8a3a092721cf39070beabe3ba8e08",
+      "partition": {
+        "selection_lower": "2023-09-27 00:00:00",
+        "calibration_lower": "2023-09-28 00:00:00",
+        "rule": "Label-free cumulative row mass60/80percent on observed training days with boundary purge; no outcome-based cutoff search",
+        "fitting_rows": 188,
+        "selection_rows": 182,
+        "calibration_rows": 42,
+        "refit_rows": 370,
+        "calibration_positive_users": 3,
+        "calibration_negative_users": 22,
+        "envelope_purging": true,
+        "calibration_not_in_estimator_refit": true,
+        "outer_evaluation_labels_used": false,
+        "parts": {
+          "inner_fit": {
+            "rows": 188,
+            "users": 108,
+            "positives": 41,
+            "positive_users": 26,
+            "negative_users": 82,
+            "row_sha256": "33067c2fdeccb429362de9cd383316e9150b463ea7512d6b8d1e0359290f5a20",
+            "earliest_window_start": "2023-09-22 11:00:00",
+            "latest_available_at": "2023-09-26 23:50:00",
+            "earliest_decision": "2023-09-23 00:00:00",
+            "latest_decision": "2023-09-27 00:00:00"
+          },
+          "inner_select": {
+            "rows": 182,
+            "users": 182,
+            "positives": 37,
+            "positive_users": 37,
+            "negative_users": 145,
+            "row_sha256": "7de7d27ce13c43fd82e6a784dc70d04f0b4d457d1d6530eaf9868c2325b7cc4a",
+            "earliest_window_start": "2023-09-27 06:10:00",
+            "latest_available_at": "2023-09-27 23:50:00",
+            "earliest_decision": "2023-09-28 00:00:00",
+            "latest_decision": "2023-09-28 00:00:00"
+          },
+          "calibration": {
+            "rows": 42,
+            "users": 25,
+            "positives": 8,
+            "positive_users": 3,
+            "negative_users": 22,
+            "row_sha256": "aa8775f931ffc56682dadec506cff53cdbb1a643750a35fcedba9ea9f4eef7c3",
+            "earliest_window_start": "2023-09-28 06:10:00",
+            "latest_available_at": "2023-10-01 23:50:00",
+            "earliest_decision": "2023-09-29 00:00:00",
+            "latest_decision": "2023-10-02 00:00:00"
+          },
+          "refit": {
+            "rows": 370,
+            "users": 196,
+            "positives": 78,
+            "positive_users": 43,
+            "negative_users": 153,
+            "row_sha256": "4c0b958323d1dd986ce52fcf1c386365617933b8d16f1c8101f7119ca75ab8eb",
+            "earliest_window_start": "2023-09-22 11:00:00",
+            "latest_available_at": "2023-09-27 23:50:00",
+            "earliest_decision": "2023-09-23 00:00:00",
+            "latest_decision": "2023-09-28 00:00:00"
+          }
+        }
+      },
+      "model_config": {
+        "seed": 20261023,
+        "n_jobs": 2,
+        "candidate_grids": {
+          "trials_per_model_representation_fold": 12,
+          "objective": "Inner selection AP",
+          "ties": "Lowest fixed grid index",
+          "LR": [
+            {
+              "C": 0.0001
+            },
+            {
+              "C": 0.001
+            },
+            {
+              "C": 0.01
+            },
+            {
+              "C": 0.03
+            },
+            {
+              "C": 0.1
+            },
+            {
+              "C": 0.3
+            },
+            {
+              "C": 1
+            },
+            {
+              "C": 3
+            },
+            {
+              "C": 10
+            },
+            {
+              "C": 30
+            },
+            {
+              "C": 100
+            },
+            {
+              "C": 1000
+            }
+          ],
+          "HGB": [
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 7,
+              "l2_regularization": 10
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 15,
+              "l2_regularization": 10
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 0
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 0.1
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 1
+            },
+            {
+              "max_leaf_nodes": 31,
+              "l2_regularization": 10
+            }
+          ]
+        },
+        "calibration_C": 1,
+        "probability_clip": 1e-06
+      },
+      "columns": [
+        "current__dns_non_reserved_dstport_ratio",
+        "current__dns_non_reserved_srcport_ratio",
+        "current__dns_protocol_tcp_ratio",
+        "current__dns_rcode_nxdomain_ratio",
+        "current__http_method_get_ratio",
+        "current__http_method_head_ratio",
+        "current__http_method_post_ratio",
+        "current__http_method_put_ratio",
+        "current__smtp_in_mean_hops",
+        "current__smtp_subject_num_characters",
+        "current__smtp_subject_num_words",
+        "current__ssl_established_ratio",
+        "current__ssl_version_ratio_v10",
+        "current__ssl_version_ratio_v20",
+        "current__ssl_version_ratio_v30"
+      ]
+    },
+    "model": "HGB",
+    "columns": [
+      "current__dns_non_reserved_dstport_ratio",
+      "current__dns_non_reserved_srcport_ratio",
+      "current__dns_protocol_tcp_ratio",
+      "current__dns_rcode_nxdomain_ratio",
+      "current__http_method_get_ratio",
+      "current__http_method_head_ratio",
+      "current__http_method_post_ratio",
+      "current__http_method_put_ratio",
+      "current__smtp_in_mean_hops",
+      "current__smtp_subject_num_characters",
+      "current__smtp_subject_num_words",
+      "current__ssl_established_ratio",
+      "current__ssl_version_ratio_v10",
+      "current__ssl_version_ratio_v20",
+      "current__ssl_version_ratio_v30"
+    ],
+    "candidate": null
+  },
+  "files": {
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\model.pkl": "8011e0f55829f31c39e4a812d9672d8875fb2e979b508b8b2aa5e7d168e94065",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\predictions.parquet": "f5887c1508ab78f1c8ab6437883d890707a8378cb47e7737e649bf1bf4ad069f",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\calibration_predictions.parquet": "3879bdc13d041ed01b93f09cbbeb1885f567ecb4d017d881e6c6f94fa53dcab4",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\partition_rows.parquet": "63307a835c8268e38d949a639e350cda4fbe20f6d61a3831739b976f5514ea6b",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\fit.json": "799d21938ba8253e395b56757c155bdc698cf7f679e25bc287e5562836e65036",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_00.json": "91c8e575565a79e21f8c7cc7279a70f427d18ed9af8a0b085ae757215adb353f",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_00.parquet": "42f805036b9c7e47a35a5de5143aadd418876371056a73b490ebb1d7a4b2266a",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_00.sha256.json": "fa75d6306833e0b760897f2c574327fd4a2c84f6c770738ab84a261a07d156fe",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_01.json": "8439b9811366b6468b9747046d8c79556b1c97de7cd9ce971623ac6167fb11e6",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_01.parquet": "6d917eae2415f0cc824279eade36bc65c3d7917396ea07a1ddc9c70783d9fdf9",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_01.sha256.json": "4c56c879c047aa28318debecec1fabc0ad7c6c5b2be208f7dc5972f0507106ea",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_02.json": "923c61daa5acecdb8ab834fc02d09dbadc3cdd47dbfd9520c3e166ac9a4434b7",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_02.parquet": "a6308cdd1bd8d92c9c283250e38490e1a53b32791c3f54e1d23ff2ac150749ce",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_02.sha256.json": "f9342ac04e02e84894a85a9428eeee9fab9cd79e052c1aff40dd66c57a86b2c6",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_03.json": "ff4e51dd7680e3bfbd0ed98a029bf7f4121c2f9d65b220b2522d9ae4275ccbf3",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_03.parquet": "1e749de5ab35632454b24b4a42f917c16da789e6b71ea3633787a76c6f4455ea",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_03.sha256.json": "5c13384cd3dea97cc9f1e8ea91f990cfb70b2cbbb8418742a31abe7712aa0638",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_04.json": "1c9d54df261d6cc4641d3a65f9ccb3542f340b9bf60b132c3c4b7ba1b138c441",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_04.parquet": "7066a0d04e0964758fe048e8391e5579d1f92122d28d20b8aa7d958d3d6c9f2f",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_04.sha256.json": "1e4804fde4b0bdc1ff1b050ee95cb011ef926c926b41a9473b002798c31eb4a3",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_05.json": "526c91e495154495cbe64386cdf4f74efa6358158961f616baa6a83377f9d2b6",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_05.parquet": "07ba8a6bb15228edf62300076838890f892258958315c6038e33db861bca6833",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_05.sha256.json": "67b25ce93123f2a8d35f68381af43c1e38421f1a1658ff19ba41f6c562ff72d9",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_06.json": "eed71e85595cebe5826b67ce8372d8ee6683847568d4b7030180e3783861241e",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_06.parquet": "193a84b6f75db0db8573d2d52e9a378a1fbc0fd1d59251aa36817dbb6bb2d93b",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_06.sha256.json": "ba9ec3b96ffd58c0bd684db18dec588ae13bd55b680d45001c4b3e533c449fae",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_07.json": "1a18d69ed05b081de0c665f5329e1baa5b85caf92bb5cba60b31cbf70b2f5293",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_07.parquet": "1e749de5ab35632454b24b4a42f917c16da789e6b71ea3633787a76c6f4455ea",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_07.sha256.json": "1c45e7220044ba73149380e7cb4cfe28121aa9f7749f03be3da0c06f529d0835",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_08.json": "218beba71e1e162cc3cf684b19a2914d8894b10d9d428e13ab375b72f7a9d103",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_08.parquet": "7066a0d04e0964758fe048e8391e5579d1f92122d28d20b8aa7d958d3d6c9f2f",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_08.sha256.json": "f45918364a73533aa00bb7dafd19231f423da4a332d8746308d982608579f1c4",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_09.json": "fc0973c68ffe50a376004014f24badd082d4f5620dd8f3204aa700009ca80059",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_09.parquet": "07ba8a6bb15228edf62300076838890f892258958315c6038e33db861bca6833",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_09.sha256.json": "438703bb9ee497f4ddb635851ba2cb3d249413f65a87f284cebf4ad002b946ed",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_10.json": "04e17ce3344299d2acd2ddccb57af7d99ed2abbe7f7a680dea465bcdf45bc25c",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_10.parquet": "193a84b6f75db0db8573d2d52e9a378a1fbc0fd1d59251aa36817dbb6bb2d93b",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_10.sha256.json": "445c3eb1b58d244fcb1df8315631ddfdd1b23e4d1ecef4a1a9d0da4e7ae4c71e",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_11.json": "bbf2ef0a69c4c7c45c23270fd8cad3448c76b424e29757fc6d96fdf7d0b576b0",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_11.parquet": "1e749de5ab35632454b24b4a42f917c16da789e6b71ea3633787a76c6f4455ea",
+    "models\\main\\NonEnc_desktop\\DEV1\\HGB\\R0_CURRENT\\trials\\trial_11.sha256.json": "ffd2203e417cbcb6d1960120bef2aecf5a119d1c47d5cf38a3a4fd2fc1a7963c"
+  },
+  "status": "COMPLETE"
+}

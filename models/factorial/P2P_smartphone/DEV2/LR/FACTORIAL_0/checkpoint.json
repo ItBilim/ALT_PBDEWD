@@ -1,0 +1,133 @@
+{
+  "binding": {
+    "inputs": {
+      "protocol\\plan.json": "e3090a832ce8761c6273dca4d14218178824df440c7b08d294a412f59bdd4c35",
+      "data\\prepared\\P2P_smartphone.parquet": "d9e14c0d9655f8d02e28558a9e55e992fa22a18356d5ac34fdeee6d9cb258aa5",
+      "data\\prepared\\P2P_smartphone_features.json": "797bc07dd1b3bffcd240158dab355edaf97f81500aa4388ffb6cd892e7570e40",
+      "experiment\\common.py": "52f1d83f57e0413dfe9d87dd8ed4c103caf272ed91c46bcd73a12fe6e6dd961c",
+      "experiment\\training.py": "0421863875393d00a3d5ba97b1ff6836a53f989e489c4ccdf201c2d2631d8dc3",
+      "experiment\\models.py": "48d9532f10deaa86a3bdfffe0d23b4b71252b09c843c0f54c7bb29b9cf61a618",
+      "experiment\\features.py": "e6dfa12d462a7f6e73050d232890c9a2dd9a3f43ca202a87334f8ba201f9883a",
+      "experiment\\splits.py": "5a92c877e55e256abbb364182e210c23afef95d141bd9064f299d468c67d2870",
+      "experiment\\factorial.py": "38de15889c5e9c39292e31dc8b2b7dd697d521e74d082a77fa2e93b4e96258e5",
+      "experiment\\prepare.py": "64e680541d29f6d3dc9ec0890584fd6327700f9ab5012e998eaaa6a8afab0aa0"
+    },
+    "model": "LR",
+    "columns": [
+      "current__dns_non_reserved_dstport_ratio",
+      "current__dns_non_reserved_srcport_ratio",
+      "current__dns_protocol_tcp_ratio",
+      "current__dns_rcode_nxdomain_ratio",
+      "current__http_method_get_ratio",
+      "current__http_method_head_ratio",
+      "current__http_method_post_ratio",
+      "current__http_method_put_ratio",
+      "current__smtp_in_mean_hops",
+      "current__smtp_subject_num_characters",
+      "current__smtp_subject_num_words",
+      "current__ssl_established_ratio",
+      "current__ssl_version_ratio_v10",
+      "current__ssl_version_ratio_v20",
+      "current__ssl_version_ratio_v30",
+      "history_mean__dns_non_reserved_dstport_ratio",
+      "history_mean__dns_non_reserved_srcport_ratio",
+      "history_mean__dns_protocol_tcp_ratio",
+      "history_mean__dns_rcode_nxdomain_ratio",
+      "history_mean__http_method_get_ratio",
+      "history_mean__http_method_head_ratio",
+      "history_mean__http_method_post_ratio",
+      "history_mean__http_method_put_ratio",
+      "history_mean__smtp_in_mean_hops",
+      "history_mean__smtp_subject_num_characters",
+      "history_mean__smtp_subject_num_words",
+      "history_mean__ssl_established_ratio",
+      "history_mean__ssl_version_ratio_v10",
+      "history_mean__ssl_version_ratio_v20",
+      "history_mean__ssl_version_ratio_v30",
+      "history__log1p_count",
+      "history__log1p_last_age_hours",
+      "history__span_hours",
+      "batch_window_age_hours"
+    ],
+    "config": {
+      "seed": 20261023,
+      "n_jobs": 2,
+      "calibration_C": 1,
+      "probability_clip": 1e-06,
+      "model_params": {}
+    },
+    "train_row_sha256": "2163cdc60d3baa1f3a8d0c78898e3acd726c0c891389e7ab4c55a4a9603deff0",
+    "evaluation_row_sha256": "dfe7dbeb3f70ea35b4624d5b63690c7bc6151cccce650c8956a75b993096656c",
+    "partition": {
+      "selection_lower": "2023-09-29 00:00:00",
+      "calibration_lower": "2023-10-04 00:00:00",
+      "rule": "Label-free cumulative row mass60/80percent on observed training days with boundary purge; no outcome-based cutoff search",
+      "fitting_rows": 799,
+      "selection_rows": 178,
+      "calibration_rows": 358,
+      "refit_rows": 981,
+      "calibration_positive_users": 50,
+      "calibration_negative_users": 308,
+      "envelope_purging": true,
+      "calibration_not_in_estimator_refit": true,
+      "outer_evaluation_labels_used": false,
+      "parts": {
+        "inner_fit": {
+          "rows": 799,
+          "users": 332,
+          "positives": 72,
+          "positive_users": 38,
+          "negative_users": 294,
+          "row_sha256": "baee587188f73d4b6498c96d28aa0bcdc547b423b843be0dbcce688932855753",
+          "earliest_window_start": "2023-09-22 10:10:00",
+          "latest_available_at": "2023-09-28 23:20:00",
+          "earliest_decision": "2023-09-23 00:00:00",
+          "latest_decision": "2023-09-29 00:00:00"
+        },
+        "inner_select": {
+          "rows": 178,
+          "users": 105,
+          "positives": 99,
+          "positive_users": 48,
+          "negative_users": 57,
+          "row_sha256": "fd5b4842ee1c59318925d520b6e5d067a7af62785bf29618e6f42afcf12d771f",
+          "earliest_window_start": "2023-09-29 00:30:00",
+          "latest_available_at": "2023-10-03 22:20:00",
+          "earliest_decision": "2023-09-30 00:00:00",
+          "latest_decision": "2023-10-04 00:00:00"
+        },
+        "calibration": {
+          "rows": 358,
+          "users": 358,
+          "positives": 50,
+          "positive_users": 50,
+          "negative_users": 308,
+          "row_sha256": "69f2a0a26abceb21d607b93bc155aa0c62ee583ad475e8b02691c6bddbdae3c4",
+          "earliest_window_start": "2023-10-04 04:20:00",
+          "latest_available_at": "2023-10-04 23:50:00",
+          "earliest_decision": "2023-10-05 00:00:00",
+          "latest_decision": "2023-10-05 00:00:00"
+        },
+        "refit": {
+          "rows": 981,
+          "users": 348,
+          "positives": 171,
+          "positive_users": 48,
+          "negative_users": 300,
+          "row_sha256": "8597091081de2e1cc38ae79283c2489ed3ec0aa2fa23af5519b915cb874dc03b",
+          "earliest_window_start": "2023-09-22 10:10:00",
+          "latest_available_at": "2023-10-03 22:20:00",
+          "earliest_decision": "2023-09-23 00:00:00",
+          "latest_decision": "2023-10-04 00:00:00"
+        }
+      }
+    }
+  },
+  "files": {
+    "models\\factorial\\P2P_smartphone\\DEV2\\LR\\FACTORIAL_0\\model.pkl": "01c018480ca835adc79bf4af9f01eda79bb8c36ba8c68acf1fdf92cebb63c786",
+    "models\\factorial\\P2P_smartphone\\DEV2\\LR\\FACTORIAL_0\\predictions.parquet": "967a1f5cc8550114ef5ea610001469763270b5189f098a693aca98a4f6837862",
+    "models\\factorial\\P2P_smartphone\\DEV2\\LR\\FACTORIAL_0\\partition_rows.parquet": "4ec6b76a8abd4ebfe6f67ecfef09c02671398de2a54f2c7b4838e9a06ea8792f",
+    "models\\factorial\\P2P_smartphone\\DEV2\\LR\\FACTORIAL_0\\fit.json": "4e23c6286fb0de3fb53e6967e23551713a9935cdc0fab0f2ffe5a69736e3e98b"
+  },
+  "status": "COMPLETE"
+}

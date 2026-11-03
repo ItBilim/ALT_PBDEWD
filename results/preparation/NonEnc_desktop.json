@@ -1,0 +1,10 @@
+{
+  "status": "PASS_EXACT_REBUILD",
+  "dataset": "NonEnc_desktop",
+  "raw_rows": 221145,
+  "retained_rows": 218756,
+  "daily_rows": 4502,
+  "prepared_sha256": "b735f49c7bae0504e306ed50ee26e9382f76f7211807124326ac8a084f805190",
+  "labels_used_in_predictor_construction": false,
+  "diagnostic_past_label_excluded_from_predictors": true
+}

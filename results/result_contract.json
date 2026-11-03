@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "fresh_fitting": true,
+  "selected_models": 520,
+  "hpo_trials": 2400,
+  "calibrators": 520,
+  "main_models": 200,
+  "factorial_models": 320,
+  "device_transfer_evaluations": 16,
+  "device_transfer_paired_contrasts": 8,
+  "exploratory_family_size": 40,
+  "original32_in_historical_reference": true,
+  "reference_predictions_match": true,
+  "reference40_intervals_match": true,
+  "scope": "FOUR_RQ_ONLY",
+  "onset_claim": false,
+  "external_validation": false
+}

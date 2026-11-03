@@ -1,0 +1,18 @@
+{
+  "date": "2026-11-02",
+  "all_pages_visually_reviewed": true,
+  "pages": 9,
+  "renderer": "Microsoft Word export plus Windows PDF renderer; packaged LibreOffice unavailable",
+  "document_sha256": "3b1533824ff44710cdc9565961d51c8081e958130aa061b6a7ce4ae9ce770f46",
+  "page_sha256": {
+    "page-01.png": "e175ffb995745b6964b1cfed5bb8a00cc03191f53a61a3766b58221c81d7fbb5",
+    "page-02.png": "58efe688279a33cf1c856f9aab8cf6a1a0c16f76d3029b1a272c097bdabd9bd4",
+    "page-03.png": "827d32c86f7dfda55cf807b225a2d02ad2f51af0b43af45409d7a8f155ec5278",
+    "page-04.png": "b488bba9bf74f5d3d5e2841281655a77f14e97fce1d2cb4c91f73be5dfb18473",
+    "page-05.png": "1b014d4c176f7c0c9ea98d92c81d60f58f50f443f679b996d2226e7fca037672",
+    "page-06.png": "e76f324e1dace1e636314c89672711f6289669c537c9d3a5cf11bd1485ddbfa1",
+    "page-07.png": "030826c02bde694eac47bb979208f90e43ffdaf6ff8b69ad6c7b5320122ce60f",
+    "page-08.png": "a344b9dc367742c80574e2f1bd2525d0d0ab673478d73260bc1eba8cac7d929f",
+    "page-09.png": "515017a5f936f12ad491eaff446f9986d06cdbc884246e50c15cd6d6f2847359"
+  }
+}

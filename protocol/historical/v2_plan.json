@@ -1,0 +1,437 @@
+{
+  "protocol_id": "MEREI_COMPUTABLE_REQUIREMENTS_COMPLETION_V2",
+  "date": "2026-10-23",
+  "authorization": "User explicitly requests finishing remaining achievable work",
+  "registration": "POST_RESULTS_EXPLORATORY_COMPLETION_NOT_PROSPECTIVE_CONFIRMATORY",
+  "old616_preserved": true,
+  "scientific_target": "Observed completed-window daily risk label ranking; profile incremental value",
+  "onset_claim": false,
+  "datasets": [
+    "NonEnc_desktop",
+    "NonEnc_smartphone",
+    "P2P_desktop",
+    "P2P_smartphone"
+  ],
+  "models": [
+    "LR",
+    "HGB",
+    "RF",
+    "XGB"
+  ],
+  "primary_models": [
+    "LR",
+    "HGB"
+  ],
+  "representations": [
+    "R0_CURRENT",
+    "R1_HISTORY",
+    "R2_STATIC",
+    "R3_ADAPTIVE",
+    "R4_DRIFT"
+  ],
+  "seed": 20261023,
+  "n_jobs": 2,
+  "splits": [
+    {
+      "name": "DEV0",
+      "lower": "2023-09-28",
+      "upper": "2023-10-02"
+    },
+    {
+      "name": "DEV1",
+      "lower": "2023-10-02",
+      "upper": "2023-10-05"
+    },
+    {
+      "name": "DEV2",
+      "lower": "2023-10-05",
+      "upper": "2023-10-09"
+    },
+    {
+      "name": "DEV3",
+      "lower": "2023-10-09",
+      "upper": "2023-10-12"
+    },
+    {
+      "name": "FINAL",
+      "lower": "2023-10-12",
+      "upper": "2023-10-17"
+    }
+  ],
+  "inner": {
+    "fit_selection_calibration": "Label-free cumulative observed training-row mass60/80percent over distinct decision days with at least one day perblock; strict source-envelope purge; no outcome-based cutoff search.",
+    "minimum_train_dates": 5,
+    "refit": "Chosen estimator refit on pre-calibration history only; no refit after calibrator training",
+    "insufficient_classes": "Explicit FAIL or NOT_ESTIMABLE; do not search evaluation labels for another split"
+  },
+  "hpo": {
+    "trials_per_model_representation_fold": 12,
+    "objective": "Inner selection AP",
+    "ties": "Lowest fixed grid index",
+    "LR": [
+      {
+        "C": 0.0001
+      },
+      {
+        "C": 0.001
+      },
+      {
+        "C": 0.01
+      },
+      {
+        "C": 0.03
+      },
+      {
+        "C": 0.1
+      },
+      {
+        "C": 0.3
+      },
+      {
+        "C": 1
+      },
+      {
+        "C": 3
+      },
+      {
+        "C": 10
+      },
+      {
+        "C": 30
+      },
+      {
+        "C": 100
+      },
+      {
+        "C": 1000
+      }
+    ],
+    "HGB": [
+      {
+        "max_leaf_nodes": 7,
+        "l2_regularization": 0
+      },
+      {
+        "max_leaf_nodes": 7,
+        "l2_regularization": 0.1
+      },
+      {
+        "max_leaf_nodes": 7,
+        "l2_regularization": 1
+      },
+      {
+        "max_leaf_nodes": 7,
+        "l2_regularization": 10
+      },
+      {
+        "max_leaf_nodes": 15,
+        "l2_regularization": 0
+      },
+      {
+        "max_leaf_nodes": 15,
+        "l2_regularization": 0.1
+      },
+      {
+        "max_leaf_nodes": 15,
+        "l2_regularization": 1
+      },
+      {
+        "max_leaf_nodes": 15,
+        "l2_regularization": 10
+      },
+      {
+        "max_leaf_nodes": 31,
+        "l2_regularization": 0
+      },
+      {
+        "max_leaf_nodes": 31,
+        "l2_regularization": 0.1
+      },
+      {
+        "max_leaf_nodes": 31,
+        "l2_regularization": 1
+      },
+      {
+        "max_leaf_nodes": 31,
+        "l2_regularization": 10
+      }
+    ],
+    "RF": [
+      {
+        "max_depth": 6,
+        "min_samples_leaf": 2
+      },
+      {
+        "max_depth": 6,
+        "min_samples_leaf": 5
+      },
+      {
+        "max_depth": 6,
+        "min_samples_leaf": 10
+      },
+      {
+        "max_depth": 6,
+        "min_samples_leaf": 20
+      },
+      {
+        "max_depth": 12,
+        "min_samples_leaf": 2
+      },
+      {
+        "max_depth": 12,
+        "min_samples_leaf": 5
+      },
+      {
+        "max_depth": 12,
+        "min_samples_leaf": 10
+      },
+      {
+        "max_depth": 12,
+        "min_samples_leaf": 20
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 2
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 5
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 10
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 20
+      }
+    ],
+    "XGB": [
+      {
+        "max_depth": 2,
+        "learning_rate": 0.025
+      },
+      {
+        "max_depth": 2,
+        "learning_rate": 0.05
+      },
+      {
+        "max_depth": 2,
+        "learning_rate": 0.1
+      },
+      {
+        "max_depth": 2,
+        "learning_rate": 0.2
+      },
+      {
+        "max_depth": 4,
+        "learning_rate": 0.025
+      },
+      {
+        "max_depth": 4,
+        "learning_rate": 0.05
+      },
+      {
+        "max_depth": 4,
+        "learning_rate": 0.1
+      },
+      {
+        "max_depth": 4,
+        "learning_rate": 0.2
+      },
+      {
+        "max_depth": 6,
+        "learning_rate": 0.025
+      },
+      {
+        "max_depth": 6,
+        "learning_rate": 0.05
+      },
+      {
+        "max_depth": 6,
+        "learning_rate": 0.1
+      },
+      {
+        "max_depth": 6,
+        "learning_rate": 0.2
+      }
+    ]
+  },
+  "calibration": {
+    "method": "Unweighted logistic sigmoid of clipped model logit on held-out chronological calibration block",
+    "regularization_C": 1,
+    "epsilon": 1e-06,
+    "evaluation": [
+      "AP",
+      "ROC_AUC",
+      "BRIER",
+      "ECE10",
+      "daily_precision_recall1and5percent"
+    ],
+    "interpretation": "Held-out calibrated probability estimate; reliability must be evaluated, no accuracy guarantee"
+  },
+  "isolation_forest": {
+    "representations": [
+      "R0_CURRENT"
+    ],
+    "benign_training_only": true,
+    "hpo": false,
+    "calibrated_probability": false
+  },
+  "counts": {
+    "hpo_trial_estimators": 4800,
+    "selected_refit_estimators": 400,
+    "calibrators": 400,
+    "IF_estimators": 20,
+    "main_estimators_total": 5220,
+    "fixed_ablation_estimators": 520,
+    "fixed_ablation_calibrators": 520,
+    "all_new_estimators_including_trials": 5740,
+    "saved_selected_estimators": 940,
+    "calibrators_total": 920
+  },
+  "ablation": {
+    "models": [
+      "LR",
+      "HGB"
+    ],
+    "fixed_parameters": true,
+    "blocks": [
+      "STATIC_DEVIATION",
+      "ADAPTIVE_DEVIATION",
+      "DRIFT"
+    ],
+    "factorial_masks": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "extensions": [
+      "TRAJECTORY",
+      "CP_SUPPORT",
+      "CP_STATE",
+      "CP_ALL",
+      "TRAJECTORY_CP_ALL"
+    ],
+    "planned_estimator_fits": 520,
+    "calibration": "Same held-out inner calibration block as main; noHPO for factorial fixed-parameter diagnostic"
+  },
+  "policy": {
+    "capacities": [
+      0.01,
+      0.05
+    ],
+    "persistence_observations": [
+      1,
+      2,
+      3
+    ],
+    "cooldown_days": [
+      0,
+      1,
+      3
+    ],
+    "cp_gate": [
+      false,
+      true
+    ],
+    "interpretation": "Diagnostic review policy on observed eligible user-days; no incident lead-time/false-incident claim"
+  },
+  "transfer": {
+    "pairs": [
+      [
+        "NonEnc_desktop",
+        "NonEnc_smartphone"
+      ],
+      [
+        "NonEnc_smartphone",
+        "NonEnc_desktop"
+      ],
+      [
+        "P2P_desktop",
+        "P2P_smartphone"
+      ],
+      [
+        "P2P_smartphone",
+        "P2P_desktop"
+      ],
+      [
+        "NonEnc_desktop",
+        "P2P_desktop"
+      ],
+      [
+        "P2P_desktop",
+        "NonEnc_desktop"
+      ],
+      [
+        "NonEnc_smartphone",
+        "P2P_smartphone"
+      ],
+      [
+        "P2P_smartphone",
+        "NonEnc_smartphone"
+      ]
+    ],
+    "models": [
+      "LR",
+      "HGB"
+    ],
+    "representations": [
+      "R1_HISTORY",
+      "R4_DRIFT"
+    ],
+    "split": "FINAL",
+    "cohort": "GLOBAL_UNSEEN",
+    "reuse_source_models": true,
+    "target_label_used_to_fit": false,
+    "reference_prevalence": 0.2,
+    "comparisons": 32
+  },
+  "statistics": {
+    "primary32": "Original32 confirmatory-under-retrospective-fixed-plan comparisons preserved unchanged",
+    "new": "Exploratory40 pairedcontrasts with10k shared global-user Poisson bootstrap95percent and Bonferroni intervals; no new confirmatory claims",
+    "bootstrap_repeats": 10000,
+    "new_family_size": 40,
+    "primary_models": [
+      "LR",
+      "HGB"
+    ],
+    "new_contrasts": [
+      [
+        "R1_HISTORY",
+        "R0_CURRENT"
+      ],
+      [
+        "R2_STATIC",
+        "R1_HISTORY"
+      ],
+      [
+        "R3_ADAPTIVE",
+        "R2_STATIC"
+      ],
+      [
+        "R4_DRIFT",
+        "R3_ADAPTIVE"
+      ],
+      [
+        "R4_DRIFT",
+        "R1_HISTORY"
+      ]
+    ]
+  },
+  "limitations": [
+    "Clock/window and source generator semantics remain independently unverified",
+    "Stable user labels cannot identify incident onset,normal pre-onset history,continuous negative coverage or recovery",
+    "Fourfiles are not external independent datasets",
+    "DEV0 early history and inner calibration can havefewpositiveusers; exactsupportreported",
+    "FINAL and previousAGA/Merei results already seen beforecompletion",
+    "Original source24+4 indicators cannot be reconstructed frommissingrawfields;15conditionalpredictors retained",
+    "Original futureonset/H1H3H7 episodeobjectives remainunidentifiable"
+  ],
+  "status": "FROZEN_BEFORE_COMPLETION_FITTING"
+}

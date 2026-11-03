@@ -1,0 +1,74 @@
+{
+  "primary_population": "USER_DAY_PRIMARY",
+  "primary_metric": "AP",
+  "primary_split": "FINAL",
+  "primary_cohort": "UNSEEN",
+  "primary_models": [
+    "LR",
+    "HGB"
+  ],
+  "primary_datasets": [
+    "NonEnc_desktop",
+    "NonEnc_smartphone",
+    "P2P_desktop",
+    "P2P_smartphone"
+  ],
+  "primary_contrasts": [
+    [
+      "R2_STATIC",
+      "R1_HISTORY"
+    ],
+    [
+      "R3_ADAPTIVE",
+      "R2_STATIC"
+    ],
+    [
+      "R4_DRIFT",
+      "R3_ADAPTIVE"
+    ],
+    [
+      "R4_DRIFT",
+      "R1_HISTORY"
+    ]
+  ],
+  "primary_family_size": 32,
+  "secondary_descriptive_contrasts": [
+    [
+      "R4_DRIFT",
+      "C_ACTIVITY"
+    ],
+    [
+      "R4_DRIFT",
+      "C_SHUFFLED"
+    ]
+  ],
+  "family_not_reduced_for_missing_or_unestimable_comparisons": true,
+  "bootstrap_method": "PAIRED_GLOBAL_USER_POISSON_1_MULTIPLICITIES",
+  "bootstrap_repeats": 20000,
+  "seed": 20261022,
+  "global_user_count": 1262,
+  "user_order_sha256": "8a5cb7e110a239bdcacede5d74bc59ae2409d0488df94a79d6fcf4b01d9ce62f",
+  "shared_draw_matrix_sha256": "b6b4a04e0f1d9bed5d536b455b15c4dfd6ed583a444a5f7dfd927f8db4840c8f",
+  "bootstrap_chunk_size": 64,
+  "minimum_valid_bootstrap_fraction": 0.95,
+  "pointwise_confidence_level": 0.95,
+  "familywise_alpha": 0.05,
+  "bonferroni_quantiles": [
+    0.00078125,
+    0.99921875
+  ],
+  "expected_draws_per_bonferroni_tail": 15.625,
+  "quantile_method": "linear",
+  "uncertainty_scope": "CONDITIONAL_ON_FROZEN_PREDICTIONS_NO_MODEL_REFITTING",
+  "score_tie_policy_ap": "GROUP_EQUAL_SCORES_AT_COMMON_THRESHOLD",
+  "capacity_tie_policy": "SCORE_DESCENDING_ROW_ID_ASCENDING",
+  "capacity_rounding": "MAX_1_CEIL_FRACTION_TIMES_BATCH_ROWS",
+  "capacity_scope": "PER_PREDICTION_DAY",
+  "daily_sensitivity": "NOT_REQUIRED_PRIMARY_ALREADY_USER_DAY",
+  "models_fitted": 0,
+  "p_values_computed": false,
+  "significance_claims_generated": false,
+  "warnings": [
+    "Bonferroni tail quantiles use only 15.62 expected draws per tail; marginal bounds have Monte Carlo uncertainty."
+  ]
+}

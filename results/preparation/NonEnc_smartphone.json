@@ -1,0 +1,10 @@
+{
+  "status": "PASS_EXACT_REBUILD",
+  "dataset": "NonEnc_smartphone",
+  "raw_rows": 221695,
+  "retained_rows": 216457,
+  "daily_rows": 5611,
+  "prepared_sha256": "7b2cca58c7bbb9daac86394b99ec4548bb70dc19649d62b2e00ebfd36a768328",
+  "labels_used_in_predictor_construction": false,
+  "diagnostic_past_label_excluded_from_predictors": true
+}
